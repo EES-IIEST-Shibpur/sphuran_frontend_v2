@@ -1,13 +1,33 @@
+import heroElectricalBg from '@/assets/hero-electrical-bg.png';
+
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20">
-      <div className="container mx-auto px-4 md:px-6 text-center">
-        {/* Version Badge */}
-        <div className="animate-slide-up inline-block mb-6">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroElectricalBg} 
+          alt="Electrical Engineering Background" 
+          className="w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-background/60" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
+        {/* Organizer Badge */}
+        <div className="animate-slide-up inline-block mb-4">
           <span className="px-4 py-2 text-xs md:text-sm font-body tracking-widest uppercase border border-primary/50 text-primary rounded-full">
             March 2025
           </span>
         </div>
+
+        {/* Department Info */}
+        <p 
+          className="font-body text-sm md:text-base text-muted-foreground tracking-wider uppercase mb-6 animate-slide-up"
+          style={{ animationDelay: '0.05s' }}
+        >
+          Electrical Engineers' Society Presents
+        </p>
 
         {/* Main Title */}
         <h1 
@@ -27,9 +47,17 @@ const HeroSection = () => {
 
         {/* Tagline */}
         <p 
-          className="font-body text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto mt-8 mb-12 tracking-wide animate-fade-in-delay"
+          className="font-body text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto mt-8 mb-4 tracking-wide animate-fade-in-delay"
         >
           Where Innovation Meets Excellence. The Ultimate Technical Extravaganza.
+        </p>
+
+        {/* Institute Info */}
+        <p 
+          className="font-body text-sm md:text-base text-primary/80 tracking-wide animate-fade-in-delay mb-12"
+          style={{ animationDelay: '0.35s' }}
+        >
+          Department of Electrical Engineering, IIEST Shibpur
         </p>
 
         {/* CTA Buttons */}

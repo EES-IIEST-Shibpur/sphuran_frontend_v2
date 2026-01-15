@@ -26,9 +26,9 @@ const ContactSection = () => {
               <div>
                 <h3 className="font-display text-lg font-bold text-foreground mb-2">Venue</h3>
                 <p className="font-body text-muted-foreground">
-                  Technical Institute Campus<br />
-                  Engineering Block, Main Road<br />
-                  City, State - 123456
+                  Department of Electrical Engineering<br />
+                  Indian Institute of Engineering Science and Technology<br />
+                  Shibpur, Howrah - 711103, West Bengal
                 </p>
               </div>
             </div>
@@ -40,8 +40,8 @@ const ContactSection = () => {
               <div>
                 <h3 className="font-display text-lg font-bold text-foreground mb-2">Email</h3>
                 <p className="font-body text-muted-foreground">
-                  info@sphuran.tech<br />
-                  registrations@sphuran.tech
+                  sphuran@iiests.ac.in<br />
+                  ees.iiests@gmail.com
                 </p>
               </div>
             </div>
@@ -57,6 +57,17 @@ const ContactSection = () => {
                   +91 98765 43211
                 </p>
               </div>
+            </div>
+
+            {/* Society Info */}
+            <div className="mt-8 p-6 border border-border rounded-lg bg-card/50">
+              <h3 className="font-display text-lg font-bold text-primary mb-2">
+                Electrical Engineers' Society
+              </h3>
+              <p className="font-body text-sm text-muted-foreground">
+                The student body of the Department of Electrical Engineering at IIEST Shibpur, 
+                dedicated to fostering technical excellence and innovation since its establishment.
+              </p>
             </div>
           </div>
 

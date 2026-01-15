@@ -1,3 +1,5 @@
+import electricalIcon from '@/assets/electrical-icon.png';
+
 const stats = [
   { value: '5000+', label: 'Participants' },
   { value: '50+', label: 'Events' },
@@ -24,20 +26,38 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6">
+            {/* Electrical Icon */}
+            <div className="flex items-center gap-4 mb-8">
+              <img 
+                src={electricalIcon} 
+                alt="Electrical Engineering" 
+                className="w-16 h-16 md:w-20 md:h-20 object-contain"
+              />
+              <div>
+                <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
+                  Electrical Engineers' Society
+                </h3>
+                <p className="font-body text-sm text-muted-foreground">
+                  IIEST Shibpur, Est. 1856
+                </p>
+              </div>
+            </div>
+
             <p className="font-body text-lg text-muted-foreground leading-relaxed">
-              Sphuran is the annual technical festival that brings together the brightest minds 
-              from across the nation. Now in its fourth edition, Sphuran 4.0 promises to be 
-              bigger, better, and more innovative than ever before.
+              Sphuran, organized by the Electrical Engineers' Society (EES) of the 
+              Department of Electrical Engineering at IIEST Shibpur, is the annual 
+              technical festival that brings together the brightest minds from across the nation.
             </p>
             <p className="font-body text-lg text-muted-foreground leading-relaxed">
-              With over 50 events spanning coding competitions, robotics, hackathons, 
-              technical workshops, and guest lectures from industry leaders, Sphuran 4.0 
-              is the ultimate platform for tech enthusiasts to showcase their skills and 
-              connect with like-minded individuals.
+              Now in its fourth edition, Sphuran 4.0 promises to be bigger, better, and more 
+              innovative than ever before. With over 50 events spanning coding competitions, 
+              robotics, hackathons, power systems challenges, circuit design contests, and 
+              guest lectures from industry leaders.
             </p>
             <p className="font-body text-lg text-muted-foreground leading-relaxed">
-              Join us for three days of non-stop innovation, learning, and competition. 
-              Push your boundaries, challenge the status quo, and be part of something extraordinary.
+              Join us for three days of non-stop innovation, learning, and competition at 
+              one of India's oldest and most prestigious engineering institutions. Push your 
+              boundaries, challenge the status quo, and be part of something extraordinary.
             </p>
           </div>
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import circuitPattern from '@/assets/circuit-pattern.png';
 
 interface Star {
   id: number;
@@ -15,7 +16,7 @@ const StarField = () => {
   useEffect(() => {
     const generateStars = () => {
       const newStars: Star[] = [];
-      const starCount = 150;
+      const starCount = 100;
 
       for (let i = 0; i < starCount; i++) {
         newStars.push({
@@ -35,6 +36,27 @@ const StarField = () => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      {/* Circuit Pattern Overlay - Top Right */}
+      <div 
+        className="absolute -top-20 -right-20 w-96 h-96 opacity-10"
+        style={{
+          backgroundImage: `url(${circuitPattern})`,
+          backgroundSize: 'cover',
+          filter: 'blur(1px)',
+        }}
+      />
+      
+      {/* Circuit Pattern Overlay - Bottom Left */}
+      <div 
+        className="absolute -bottom-20 -left-20 w-96 h-96 opacity-10 rotate-180"
+        style={{
+          backgroundImage: `url(${circuitPattern})`,
+          backgroundSize: 'cover',
+          filter: 'blur(1px)',
+        }}
+      />
+
+      {/* Stars */}
       {stars.map((star) => (
         <div
           key={star.id}
@@ -49,8 +71,9 @@ const StarField = () => {
           }}
         />
       ))}
-      {/* Larger accent stars */}
-      {[...Array(10)].map((_, i) => (
+      
+      {/* Larger accent stars (electric blue) */}
+      {[...Array(15)].map((_, i) => (
         <div
           key={`accent-${i}`}
           className="absolute rounded-full bg-primary"
@@ -62,6 +85,22 @@ const StarField = () => {
             animation: `twinkle ${Math.random() * 4 + 3}s ease-in-out infinite`,
             animationDelay: `${Math.random() * 3}s`,
             boxShadow: '0 0 10px hsl(187 100% 50% / 0.8)',
+          }}
+        />
+      ))}
+
+      {/* Electric spark lines */}
+      {[...Array(5)].map((_, i) => (
+        <div
+          key={`spark-${i}`}
+          className="absolute bg-primary/30"
+          style={{
+            left: `${20 + i * 15}%`,
+            top: '0',
+            width: '1px',
+            height: '100%',
+            opacity: 0.1,
+            animation: `twinkle ${5 + i}s ease-in-out infinite`,
           }}
         />
       ))}
