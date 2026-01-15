@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import sphuranLogo from '@/assets/sphuran-logo.jpg';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -27,13 +28,20 @@ const Navbar = () => {
           {/* Logo */}
           <a 
             href="#home" 
-            className="font-display text-xl md:text-2xl font-bold tracking-wider text-foreground hover:text-primary transition-colors"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection('#home');
             }}
           >
-            SPHURAN<span className="text-primary">4.0</span>
+            <img 
+              src={sphuranLogo} 
+              alt="Sphuran Logo" 
+              className="h-10 w-10 md:h-12 md:w-12 object-contain rounded-lg"
+            />
+            <span className="font-display text-xl md:text-2xl font-bold tracking-wider text-foreground">
+              SPHURAN<span className="text-primary">4.0</span>
+            </span>
           </a>
 
           {/* Desktop & Mobile Menu Button - Right Side */}

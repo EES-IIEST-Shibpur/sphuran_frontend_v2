@@ -1,4 +1,5 @@
 import heroElectricalBg from '@/assets/hero-electrical-bg.png';
+import sphuranLogo from '@/assets/sphuran-logo.jpg';
 
 const HeroSection = () => {
   return (
@@ -28,6 +29,18 @@ const HeroSection = () => {
         >
           Electrical Engineers' Society Presents
         </p>
+
+        {/* Sphuran Logo */}
+        <div 
+          className="animate-slide-up mb-6"
+          style={{ animationDelay: '0.08s' }}
+        >
+          <img 
+            src={sphuranLogo} 
+            alt="Sphuran Logo" 
+            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 mx-auto object-contain rounded-2xl shadow-2xl border-2 border-primary/30 animate-pulse-slow"
+          />
+        </div>
 
         {/* Main Title */}
         <h1 

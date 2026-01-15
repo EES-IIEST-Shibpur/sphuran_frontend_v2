@@ -1,4 +1,5 @@
 import electricalIcon from '@/assets/electrical-icon.png';
+import sphuranLogo from '@/assets/sphuran-logo.jpg';
 
 const stats = [
   { value: '5000+', label: 'Participants' },
@@ -16,9 +17,16 @@ const AboutSection = () => {
           <span className="font-body text-primary text-sm tracking-widest uppercase">
             About The Fest
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4">
-            SPHURAN 4.0
-          </h2>
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <img 
+              src={sphuranLogo} 
+              alt="Sphuran Logo" 
+              className="w-12 h-12 md:w-16 md:h-16 object-contain rounded-lg"
+            />
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+              SPHURAN 4.0
+            </h2>
+          </div>
           <div className="w-20 h-1 bg-primary mx-auto mt-6" />
         </div>
 

@@ -112,6 +112,10 @@
     animation: fade-in 0.8s ease-out 0.3s forwards;
     opacity: 0;
   }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
 }
 
 @keyframes twinkle {
@@ -176,4 +180,15 @@
 
 .shooting-star {
   animation: shooting-star 1s ease-out forwards;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 30px hsl(187 100% 50% / 0.3);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 50px hsl(187 100% 50% / 0.5);
+  }
 }
