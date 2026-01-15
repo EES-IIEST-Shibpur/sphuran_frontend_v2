@@ -1,5 +1,6 @@
-import { Code, Cpu, Gamepad2, Lightbulb, Mic, Wrench, Binary, Zap } from 'lucide-react';
+import { Code, Cpu, Gamepad2, Lightbulb, Mic, Wrench, Zap, Activity } from 'lucide-react';
 import EventCard from './EventCard';
+import circuitPattern from '@/assets/circuit-pattern.png';
 
 const events = [
   {
@@ -19,24 +20,24 @@ const events = [
     prize: '75K',
   },
   {
-    title: 'Hackathon 48',
-    description: '48 hours of non-stop innovation. Build solutions that matter and pitch to industry experts.',
+    title: 'Power Grid Challenge',
+    description: 'Design and optimize power distribution networks. Test your electrical engineering prowess.',
     icon: Zap,
-    category: 'Innovation',
+    category: 'Electrical',
     date: 'All Days',
     prize: '1L',
   },
   {
-    title: 'CTF Challenge',
-    description: 'Capture The Flag cybersecurity competition. Hack your way through challenges and prove your skills.',
-    icon: Binary,
-    category: 'Security',
+    title: 'Circuit Maestro',
+    description: 'Design, simulate, and build electronic circuits. From analog to digital, show your circuit skills.',
+    icon: Activity,
+    category: 'Electronics',
     date: 'Day 1',
     prize: '30K',
   },
   {
     title: 'TechQuiz',
-    description: 'Test your technical knowledge across domains. From programming to electronics, prove you know it all.',
+    description: 'Test your technical knowledge across domains. From programming to power systems, prove you know it all.',
     icon: Lightbulb,
     category: 'Quiz',
     date: 'Day 2',
@@ -70,8 +71,17 @@ const events = [
 
 const EventsSection = () => {
   return (
-    <section id="events" className="relative py-24 md:py-32">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="events" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Decorative Circuit Pattern */}
+      <div 
+        className="absolute top-0 right-0 w-64 h-64 opacity-5"
+        style={{
+          backgroundImage: `url(${circuitPattern})`,
+          backgroundSize: 'cover',
+        }}
+      />
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="font-body text-primary text-sm tracking-widest uppercase">
@@ -82,8 +92,8 @@ const EventsSection = () => {
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mt-6" />
           <p className="font-body text-muted-foreground max-w-2xl mx-auto mt-6">
-            Compete in over 50 events across multiple technical domains. 
-            Here are some of our flagship competitions.
+            Compete in over 50 events across multiple technical domains including 
+            electrical engineering, power systems, and electronics.
           </p>
         </div>
 
