@@ -13,39 +13,50 @@ interface EventCardProps {
 const EventCard = ({ title, description, icon: Icon, category, date, prize, onClick }: EventCardProps) => {
   return (
     <div 
-      className="group relative p-6 md:p-8 bg-card border border-border rounded-lg hover:border-primary/50 transition-all duration-500 overflow-hidden cursor-pointer"
+      className="group relative h-full bg-background border border-border hover:border-primary transition-all duration-300 overflow-hidden cursor-pointer"
       onClick={onClick}
     >
-      {/* Background Glow Effect */}
-      <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
-      {/* Category Badge */}
-      <div className="relative z-10 mb-4">
-        <span className="px-3 py-1 text-xs font-body tracking-wider uppercase text-primary border border-primary/30 rounded-full">
+      {/* Top Bar with Category */}
+      <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-card/50">
+        <span className="font-body text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
           {category}
         </span>
+        <span className="font-display text-xs font-bold text-primary">{prize}</span>
       </div>
 
-      {/* Icon */}
-      <div className="relative z-10 w-14 h-14 flex items-center justify-center border border-border rounded-lg mb-6 group-hover:border-primary/50 transition-colors duration-300">
-        <Icon className="w-7 h-7 text-primary" />
+      {/* Main Content */}
+      <div className="p-5">
+        {/* Icon */}
+        <div className="w-12 h-12 flex items-center justify-center bg-card border border-border mb-4 group-hover:border-primary group-hover:bg-primary/5 transition-all duration-300">
+          <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+        </div>
+
+        {/* Title */}
+        <h3 className="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 tracking-wide">
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-3">
+          {description}
+        </p>
       </div>
 
-      {/* Title */}
-      <h3 className="relative z-10 font-display text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-        {title}
-      </h3>
-
-      {/* Description */}
-      <p className="relative z-10 font-body text-muted-foreground text-sm leading-relaxed mb-6">
-        {description}
-      </p>
-
-      {/* Meta Info */}
-      <div className="relative z-10 flex items-center justify-between pt-4 border-t border-border">
-        <span className="font-body text-xs text-muted-foreground">{date}</span>
-        <span className="font-display text-sm text-primary font-semibold">{prize}</span>
+      {/* Footer */}
+      <div className="absolute bottom-0 left-0 right-0 px-5 py-3 border-t border-border bg-card/30">
+        <div className="flex items-center justify-between">
+          <span className="font-body text-[10px] tracking-widest uppercase text-muted-foreground">{date}</span>
+          <span className="font-body text-[10px] tracking-widest uppercase text-primary group-hover:translate-x-1 transition-transform">
+            View Details →
+          </span>
+        </div>
       </div>
+
+      {/* Bottom padding for absolute footer */}
+      <div className="h-12" />
+
+      {/* Hover Line */}
+      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-500" />
     </div>
   );
 };

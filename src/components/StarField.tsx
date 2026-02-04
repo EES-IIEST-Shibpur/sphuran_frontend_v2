@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import circuitPattern from '@/assets/circuit-pattern.png';
 
 interface Star {
   id: number;
@@ -16,14 +15,14 @@ const StarField = () => {
   useEffect(() => {
     const generateStars = () => {
       const newStars: Star[] = [];
-      const starCount = 100;
+      const starCount = 80;
 
       for (let i = 0; i < starCount; i++) {
         newStars.push({
           id: i,
           x: Math.random() * 100,
           y: Math.random() * 100,
-          size: Math.random() * 2 + 1,
+          size: Math.random() * 1.5 + 0.5,
           delay: Math.random() * 5,
           duration: Math.random() * 3 + 2,
         });
@@ -36,23 +35,15 @@ const StarField = () => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {/* Circuit Pattern Overlay - Top Right */}
+      {/* Subtle Grid Pattern */}
       <div 
-        className="absolute -top-20 -right-20 w-96 h-96 opacity-10"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `url(${circuitPattern})`,
-          backgroundSize: 'cover',
-          filter: 'blur(1px)',
-        }}
-      />
-      
-      {/* Circuit Pattern Overlay - Bottom Left */}
-      <div 
-        className="absolute -bottom-20 -left-20 w-96 h-96 opacity-10 rotate-180"
-        style={{
-          backgroundImage: `url(${circuitPattern})`,
-          backgroundSize: 'cover',
-          filter: 'blur(1px)',
+          backgroundImage: `
+            linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
         }}
       />
 
@@ -60,7 +51,7 @@ const StarField = () => {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute rounded-full bg-foreground"
+          className="absolute rounded-full bg-foreground/60"
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,
@@ -73,37 +64,29 @@ const StarField = () => {
       ))}
       
       {/* Larger accent stars (electric blue) */}
-      {[...Array(15)].map((_, i) => (
+      {[...Array(10)].map((_, i) => (
         <div
           key={`accent-${i}`}
           className="absolute rounded-full bg-primary"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            width: '3px',
-            height: '3px',
+            width: '2px',
+            height: '2px',
             animation: `twinkle ${Math.random() * 4 + 3}s ease-in-out infinite`,
             animationDelay: `${Math.random() * 3}s`,
-            boxShadow: '0 0 10px hsl(187 100% 50% / 0.8)',
+            boxShadow: '0 0 8px hsl(var(--primary) / 0.6)',
           }}
         />
       ))}
 
-      {/* Electric spark lines */}
-      {[...Array(5)].map((_, i) => (
-        <div
-          key={`spark-${i}`}
-          className="absolute bg-primary/30"
-          style={{
-            left: `${20 + i * 15}%`,
-            top: '0',
-            width: '1px',
-            height: '100%',
-            opacity: 0.1,
-            animation: `twinkle ${5 + i}s ease-in-out infinite`,
-          }}
-        />
-      ))}
+      {/* Subtle vertical lines */}
+      <div className="absolute left-[20%] top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      <div className="absolute left-[80%] top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      
+      {/* Ambient glow spots */}
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-[100px]" />
+      <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-primary/2 rounded-full blur-[80px]" />
     </div>
   );
 };

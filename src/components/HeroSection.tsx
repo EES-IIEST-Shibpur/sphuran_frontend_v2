@@ -1,104 +1,130 @@
-import heroElectricalBg from '@/assets/hero-electrical-bg.png';
+import { useEffect, useState } from 'react';
 import sphuranLogo from '@/assets/sphuran-logo.jpg';
 
 const HeroSection = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroElectricalBg} 
-          alt="Electrical Engineering Background" 
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-background/60" />
+    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-background">
+      {/* Floating Badges */}
+      <div className="absolute top-32 left-8 md:left-16 z-20 animate-float">
+        <div className="px-4 py-2 bg-card border border-border rounded-full font-body text-xs md:text-sm tracking-widest text-muted-foreground">
+          MARCH 2025
+        </div>
+      </div>
+      
+      <div className="absolute top-40 right-8 md:right-20 z-20 animate-float" style={{ animationDelay: '1s' }}>
+        <div className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-display text-xs md:text-sm tracking-wider font-bold">
+          4TH EDITION
+        </div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-        {/* Organizer Badge */}
-        <div className="animate-slide-up inline-block mb-4">
-          <span className="px-4 py-2 text-xs md:text-sm font-body tracking-widest uppercase border border-primary/50 text-primary rounded-full">
-            March 2025
-          </span>
+      <div className="absolute top-56 left-1/2 -translate-x-1/2 z-20 animate-float" style={{ animationDelay: '0.5s' }}>
+        <div className="px-6 py-3 bg-card/80 backdrop-blur border border-primary/30 rounded-full font-body text-xs tracking-widest text-primary">
+          EES IIEST SHIBPUR
         </div>
+      </div>
 
-        {/* Department Info */}
-        <p 
-          className="font-body text-sm md:text-base text-muted-foreground tracking-wider uppercase mb-6 animate-slide-up"
-          style={{ animationDelay: '0.05s' }}
-        >
-          Electrical Engineers' Society Presents
-        </p>
-
-        {/* Sphuran Logo */}
+      {/* Main Content */}
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Logo positioned creatively */}
         <div 
-          className="animate-slide-up mb-6"
-          style={{ animationDelay: '0.08s' }}
+          className="absolute -top-4 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-12 lg:right-24 z-30"
+          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
         >
           <img 
             src={sphuranLogo} 
             alt="Sphuran Logo" 
-            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 mx-auto object-contain rounded-2xl shadow-2xl border-2 border-primary/30 animate-pulse-slow"
+            className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain rounded-2xl shadow-2xl border-2 border-primary/30 animate-pulse-slow"
           />
         </div>
 
-        {/* Main Title */}
-        <h1 
-          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider text-foreground mb-4 animate-slide-up"
-          style={{ animationDelay: '0.1s' }}
-        >
-          SPHURAN
-        </h1>
-        
-        {/* Version Number */}
-        <div 
-          className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[12rem] font-black text-primary text-glow-strong animate-slide-up"
-          style={{ animationDelay: '0.2s' }}
-        >
-          4.0
+        {/* Massive Typography - SPHURAN */}
+        <div className="relative mt-32 md:mt-24">
+          <h1 className="font-display text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[12rem] xl:text-[16rem] font-black tracking-tighter text-foreground leading-none select-none">
+            SPHU
+            <span className="text-primary text-glow-strong">R</span>
+            AN
+          </h1>
+          
+          {/* 4.0 overlapping */}
+          <div className="absolute -bottom-8 md:-bottom-16 right-0 md:right-20">
+            <span className="font-display text-[5rem] sm:text-[7rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] font-black text-primary text-glow-strong leading-none select-none opacity-90">
+              4.0
+            </span>
+          </div>
         </div>
 
         {/* Tagline */}
-        <p 
-          className="font-body text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto mt-8 mb-4 tracking-wide animate-fade-in-delay"
-        >
-          Where Innovation Meets Excellence. The Ultimate Technical Extravaganza.
-        </p>
-
-        {/* Institute Info */}
-        <p 
-          className="font-body text-sm md:text-base text-primary/80 tracking-wide animate-fade-in-delay mb-12"
-          style={{ animationDelay: '0.35s' }}
-        >
-          Department of Electrical Engineering, IIEST Shibpur
-        </p>
+        <div className="mt-20 md:mt-32 max-w-xl">
+          <p className="font-body text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground mb-4">
+            Electrical Engineers' Society Presents
+          </p>
+          <h2 className="font-display text-xl md:text-2xl lg:text-3xl text-foreground tracking-wide mb-6">
+            WHERE INNOVATION<br/>
+            MEETS <span className="text-primary">EXCELLENCE</span>
+          </h2>
+          <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed">
+            The ultimate technical extravaganza bringing together the brightest minds 
+            in electrical engineering for three days of innovation, competition, and celebration.
+          </p>
+        </div>
 
         {/* CTA Buttons */}
-        <div 
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-delay"
-          style={{ animationDelay: '0.4s' }}
-        >
+        <div className="flex flex-wrap gap-4 mt-12">
           <a
             href="#events"
-            className="px-8 py-4 bg-primary text-primary-foreground font-display text-sm tracking-widest uppercase hover:bg-primary/90 transition-all duration-300 box-glow hover:box-glow-strong rounded-sm"
+            className="group px-8 py-4 bg-primary text-primary-foreground font-display text-sm tracking-widest uppercase hover:bg-primary/90 transition-all duration-300 box-glow hover:box-glow-strong"
           >
-            Explore Events
+            EXPLORE EVENTS
+            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </a>
           <a
             href="#about"
-            className="px-8 py-4 border border-foreground/30 text-foreground font-display text-sm tracking-widest uppercase hover:border-primary hover:text-primary transition-all duration-300 rounded-sm"
+            className="px-8 py-4 border border-border text-foreground font-display text-sm tracking-widest uppercase hover:border-primary hover:text-primary transition-all duration-300"
           >
-            Learn More
+            LEARN MORE
           </a>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
-          <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
+        {/* Stats Row */}
+        <div className="flex flex-wrap gap-8 md:gap-16 mt-16 md:mt-24">
+          <div>
+            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-glow">4+</div>
+            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Years</div>
+          </div>
+          <div>
+            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">10+</div>
+            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Events</div>
+          </div>
+          <div>
+            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">500+</div>
+            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Participants</div>
+          </div>
+          <div>
+            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">3</div>
+            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Days</div>
           </div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float z-20">
+        <div className="flex flex-col items-center gap-2">
+          <span className="font-body text-xs tracking-widest text-muted-foreground uppercase">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
+        </div>
+      </div>
+
+      {/* Decorative Elements */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
     </section>
   );
 };
