@@ -15,7 +15,7 @@ const HeroSection = () => {
       {/* Floating Badges */}
       <div className="absolute top-32 left-8 md:left-16 z-20 animate-float">
         <div className="px-4 py-2 bg-card border border-border rounded-full font-body text-xs md:text-sm tracking-widest text-muted-foreground">
-          MARCH 2025
+          2026
         </div>
       </div>
       
@@ -71,8 +71,8 @@ const HeroSection = () => {
             MEETS <span className="text-primary">EXCELLENCE</span>
           </h2>
           <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed">
-            The ultimate technical extravaganza bringing together the brightest minds 
-            in electrical engineering for three days of innovation, competition, and celebration.
+            The technical festival of the Electrical Engineering Department at IIEST Shibpur, 
+            bringing together students, industry leaders, and researchers to showcase technical skills and innovations.
           </p>
         </div>
 
@@ -96,20 +96,20 @@ const HeroSection = () => {
         {/* Stats Row */}
         <div className="flex flex-wrap gap-8 md:gap-16 mt-16 md:mt-24">
           <div>
-            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-glow">4+</div>
-            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Years</div>
+            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-glow">4</div>
+            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Edition</div>
           </div>
           <div>
-            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">10+</div>
+            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">9+</div>
             <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Events</div>
           </div>
           <div>
-            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">500+</div>
-            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Participants</div>
+            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">1856</div>
+            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Est.</div>
           </div>
           <div>
-            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">3</div>
-            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Days</div>
+            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">INI</div>
+            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Status</div>
           </div>
         </div>
       </div>

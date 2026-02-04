@@ -19,13 +19,13 @@ const Footer = () => {
                   SPHURAN<span className="text-primary">4.0</span>
                 </div>
                 <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-1">
-                  March 2025
+                  2026
                 </div>
               </div>
             </div>
             <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-sm">
-              The ultimate technical extravaganza by Electrical Engineers' Society, 
-              Department of Electrical Engineering, IIEST Shibpur.
+              The technical festival of the Electrical Engineering Department at IIEST Shibpur, 
+              bringing together students, industry leaders, and researchers to showcase technical skills and innovations.
             </p>
           </div>
 
@@ -52,8 +52,11 @@ const Footer = () => {
               <p>Department of Electrical Engineering</p>
               <p>IIEST Shibpur, Howrah - 711103</p>
               <p>West Bengal, India</p>
-              <a href="mailto:sphuran@eesiiests.org" className="block text-primary hover:underline mt-4">
-                sphuran@eesiiests.org
+              <a href="mailto:sphuran.ees@gmail.com" className="block text-primary hover:underline mt-4">
+                sphuran.ees@gmail.com
+              </a>
+              <a href="https://sphuran.eesiiests.org" target="_blank" rel="noopener noreferrer" className="block text-primary hover:underline">
+                sphuran.eesiiests.org
               </a>
             </div>
           </div>
@@ -73,8 +76,19 @@ const Footer = () => {
             </a>
             . All rights reserved.
           </div>
-          <div className="font-body text-xs text-muted-foreground">
-            Designed by <span className="text-primary">EES Web Team</span>
+          <div className="flex items-center gap-4">
+            <a 
+              href="https://instagram.com/sphuran.ees" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-body text-xs text-muted-foreground hover:text-primary transition-colors"
+            >
+              @sphuran.ees
+            </a>
+            <span className="text-border">|</span>
+            <div className="font-body text-xs text-muted-foreground">
+              Designed by <span className="text-primary">EES Web Team</span>
+            </div>
           </div>
         </div>
       </div>
