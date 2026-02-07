@@ -36,7 +36,7 @@ const sponsorLogos = [
 
 const PastSponsers = () => {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section id="sponsors" className="relative py-24 md:py-32 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
