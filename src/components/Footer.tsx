@@ -1,5 +1,6 @@
 import sphuranLogo from '@/assets/sphuran-logo.jpg';
 import { getYear } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -45,6 +46,12 @@ const Footer = () => {
                     {link}
                   </a>
                 ))}
+                <Link
+                  to="/team"
+                  className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Team
+                </Link>
               </div>
             </div>
 

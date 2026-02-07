@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import sphuranLogo from '@/assets/sphuran-logo.jpg';
 import ChipsTab from './ui/tabs/ChipsTab';
 import { StaggeredMenu } from './ui/tabs/StaggeredMenu';
@@ -10,6 +11,7 @@ const navItems = [
   { label: 'Events', href: '#events' },
   { label: 'Sponsors', href: '#sponsors' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Team', href: '/team' },
 ];
 
 const staggeredMenuItems = navItems.map((item) => ({
@@ -26,6 +28,7 @@ const socialLinks = SocialLinks.map((social) => ({
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -58,9 +61,13 @@ const Navbar = () => {
   }, [isOpen]);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('/')) {
+      navigate(href);
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsOpen(false);
   };
