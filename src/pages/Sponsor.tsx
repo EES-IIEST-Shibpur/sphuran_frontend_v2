@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Mail, Phone, Users, Target, Award, TrendingUp, Globe } from 'lucide-react';
 import PastSponsers from '@/components/PastSponsers';
+import Footer from '@/components/Footer';
 
 const sponsorshipTiers = [
   { tier: 'Title Sponsor', amount: '₹200000/-' },
@@ -211,6 +212,9 @@ const Sponsor = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

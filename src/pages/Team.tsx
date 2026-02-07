@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
+import Footer from '@/components/Footer';
 
 const teamData = {
   faculty: [
@@ -269,6 +270,9 @@ const Team = () => {
           <TeamSection title="" members={teamData.volunteers} />
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

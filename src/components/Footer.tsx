@@ -1,8 +1,29 @@
 import sphuranLogo from '@/assets/sphuran-logo.jpg';
 import { getYear } from 'date-fns';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleHashNavigation = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/' + hash);
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="relative py-8 md:py-12 border-t border-border bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -41,7 +62,8 @@ const Footer = () => {
                   <a
                     key={link}
                     href={`#${link.toLowerCase()}`}
-                    className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+                    onClick={(e) => handleHashNavigation(e, `#${link.toLowerCase()}`)}
+                    className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                   >
                     {link}
                   </a>
