@@ -170,7 +170,7 @@ const Sponsor = () => {
         </div>
 
         {/* Past Sponsors Section */}
-        <div className="mb-20">
+        <div className="mb-0">
           <PastSponsers />
         </div>
 
@@ -204,6 +204,9 @@ const Sponsor = () => {
             </p>
             <p className="font-body text-sm text-muted-foreground mt-2">
               <span className="font-semibold text-foreground">Phone:</span> +91 79083 62321
+            </p>
+            <p className="font-body text-sm text-muted-foreground mt-2">
+              <span className="font-semibold text-foreground">Email:</span> 2022eeb002.ruman@students.iiests.ac.in
             </p>
           </div>
         </div>
