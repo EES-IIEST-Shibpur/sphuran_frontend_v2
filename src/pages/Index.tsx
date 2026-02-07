@@ -5,6 +5,7 @@ import AboutSection from '@/components/AboutSection';
 import EventsSection from '@/components/EventsSection';
 import ScheduleSection from '@/components/ScheduleSection';
 import ContactSection from '@/components/ContactSection';
+import PastSponsers from '@/components/PastSponsers';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
         <EventsSection />
         <ScheduleSection />
         <ContactSection />
+        <PastSponsers />
       </main>
 
       {/* Footer */}
