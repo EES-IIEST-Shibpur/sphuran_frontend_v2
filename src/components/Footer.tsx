@@ -52,6 +52,12 @@ const Footer = () => {
                 >
                   Team
                 </Link>
+                <Link
+                  to="/sponsor"
+                  className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Sponsors
+                </Link>
               </div>
             </div>
 

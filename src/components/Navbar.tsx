@@ -9,8 +9,8 @@ const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Events', href: '#events' },
-  { label: 'Sponsors', href: '#sponsors' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Sponsors', href: '/sponsor' },
   { label: 'Team', href: '/team' },
 ];
 
