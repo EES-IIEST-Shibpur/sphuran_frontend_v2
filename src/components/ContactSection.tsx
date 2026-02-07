@@ -1,13 +1,21 @@
 import { Mail, MapPin, Phone, ExternalLink, Share2 } from 'lucide-react';
-import { FaInstagram, FaTwitter, FaLinkedin, FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { useState, FormEvent } from 'react';
 import axios from 'axios';
 
-const contacts = [
-  { name: 'Ruman Paul', phone: '+91 79083 62321' },
-  { name: 'Devendra Prasad', phone: '+91 79085 83033' },
-  { name: 'Deepak Garg', phone: '+91 82094 17098' },
-];
+const contactCategories = {
+  secretary: [
+    { name: 'Ruman Paul', phone: '+91 79083 62321' }
+  ],
+  mainCoordinators: [
+    { name: 'Devendra Prasad', phone: '+91 79085 83033' },
+    { name: 'Deepak Garg', phone: '+91 82094 17098' },
+    { name: 'Ambhrin Roy', phone: '+91 7978837249' }
+  ],
+  developer: [
+    { name: 'Aminul Islam', phone: '+91 9064767147' }
+  ]
+};
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +26,7 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [showAllCoordinators, setShowAllCoordinators] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -183,25 +192,85 @@ const ContactSection = () => {
             {/* Contact Persons */}
             <div>
               <h3 className="font-display text-sm tracking-wider uppercase text-foreground mb-4">Contact Persons</h3>
-              <div className="space-y-3">
-                {contacts.map((contact) => (
-                  <div 
-                    key={contact.name}
-                    className="flex items-center justify-between p-4 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors"
-                  >
-                    <div>
-                      <h4 className="font-display text-sm font-semibold text-foreground">{contact.name}</h4>
-                      <p className="font-body text-xs text-muted-foreground">Event Coordinator</p>
-                    </div>
-                    <a 
-                      href={`tel:${contact.phone.replace(/\s/g, '')}`}
-                      className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors group"
+              
+              {/* Secretary */}
+              <div className="mb-4">
+                <h4 className="font-display text-xs tracking-wider uppercase text-muted-foreground mb-2">Secretary (EES)</h4>
+                <div className="space-y-2">
+                  {contactCategories.secretary.map((contact) => (
+                    <div 
+                      key={contact.name}
+                      className="flex items-center justify-between p-4 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors"
                     >
-                      <Phone className="w-3 h-3 text-primary group-hover:text-primary-foreground" />
-                      <span className="font-body text-xs text-primary group-hover:text-primary-foreground">{contact.phone}</span>
-                    </a>
-                  </div>
-                ))}
+                      <div>
+                        <h5 className="font-display text-sm font-semibold text-foreground">{contact.name}</h5>
+                      </div>
+                      <a 
+                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                        className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors group"
+                      >
+                        <Phone className="w-3 h-3 text-primary group-hover:text-primary-foreground" />
+                        <span className="font-body text-xs text-primary group-hover:text-primary-foreground">{contact.phone}</span>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Main Coordinators */}
+              <div className="mb-4">
+                <h4 className="font-display text-xs tracking-wider uppercase text-muted-foreground mb-2">Main Coordinators</h4>
+                <div className="space-y-2">
+                  {(showAllCoordinators ? contactCategories.mainCoordinators : contactCategories.mainCoordinators.slice(0, 1)).map((contact) => (
+                    <div 
+                      key={contact.name}
+                      className="flex items-center justify-between p-4 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors"
+                    >
+                      <div>
+                        <h5 className="font-display text-sm font-semibold text-foreground">{contact.name}</h5>
+                      </div>
+                      <a 
+                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                        className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors group"
+                      >
+                        <Phone className="w-3 h-3 text-primary group-hover:text-primary-foreground" />
+                        <span className="font-body text-xs text-primary group-hover:text-primary-foreground">{contact.phone}</span>
+                      </a>
+                    </div>
+                  ))}
+                  {contactCategories.mainCoordinators.length > 1 && (
+                    <button
+                      onClick={() => setShowAllCoordinators(!showAllCoordinators)}
+                      className="w-full p-3 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors font-body text-xs text-muted-foreground hover:text-primary"
+                    >
+                      {showAllCoordinators ? 'Show Less' : `Show ${contactCategories.mainCoordinators.length - 1} More`}
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Developer */}
+              <div>
+                <h4 className="font-display text-xs tracking-wider uppercase text-muted-foreground mb-2">Developer</h4>
+                <div className="space-y-2">
+                  {contactCategories.developer.map((contact) => (
+                    <div 
+                      key={contact.name}
+                      className="flex items-center justify-between p-4 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors"
+                    >
+                      <div>
+                        <h5 className="font-display text-sm font-semibold text-foreground">{contact.name}</h5>
+                      </div>
+                      <a 
+                        href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                        className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors group"
+                      >
+                        <Phone className="w-3 h-3 text-primary group-hover:text-primary-foreground" />
+                        <span className="font-body text-xs text-primary group-hover:text-primary-foreground">{contact.phone}</span>
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
