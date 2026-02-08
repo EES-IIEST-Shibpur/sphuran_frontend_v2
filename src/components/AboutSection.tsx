@@ -68,7 +68,7 @@ const AboutSection = memo(() => {
                 </h3>
                 <p className="font-body text-sm text-muted-foreground mt-1">
                   Department of Electrical Engineering<br/>
-                  IIEST Shibpur, Est. 1912
+                  IIEST Shibpur, Est. 1981
                 </p>
               </div>
             </div>
