@@ -6,6 +6,7 @@ import ShinyText from './ui/animatedComponents/shinyText';
 
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -13,54 +14,97 @@ const HeroSection = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Mobile-optimized settings (reduced quality for performance)
+  const mobileOptions = {
+    "distortion": "turbulentDistortion",
+    "length": 300,
+    "roadWidth": 9,
+    "islandWidth": 1.5,
+    "lanesPerRoad": 2,
+    "fov": 90,
+    "fovSpeedUp": 150,
+    "speedUp": 2,
+    "carLightsFade": 0.4,
+    "totalSideLightSticks": 8,
+    "lightPairsPerRoadWay": 15,
+    "shoulderLinesWidthPercentage": 0.05,
+    "brokenLinesWidthPercentage": 0.1,
+    "brokenLinesLengthPercentage": 0.5,
+    "lightStickWidth": [0.12, 0.4] as [number, number],
+    "lightStickHeight": [1.2, 1.5] as [number, number],
+    "movingAwaySpeed": [50, 70] as [number, number],
+    "movingCloserSpeed": [-100, -140] as [number, number],
+    "carLightsLength": [12, 60] as [number, number],
+    "carLightsRadius": [0.05, 0.12] as [number, number],
+    "carWidthPercentage": [0.3, 0.5] as [number, number],
+    "carShiftX": [-0.8, 0.8] as [number, number],
+    "carFloorSeparation": [0, 3] as [number, number],
+    "colors": {
+      "roadColor": 526344,
+      "islandColor": 657930,
+      "background": 0,
+      "shoulderLines": 1250072,
+      "brokenLines": 1250072,
+      "leftCars": [14177983, 6770850, 12732332],
+      "rightCars": [242627, 941733, 3294549],
+      "sticks": 242627
+    },
+    "onSpeedUp": (ev: any) => ev.preventDefault(),
+    "onSlowDown": (ev: any) => ev.preventDefault()
+  };
+
+  // Desktop settings (full quality)
+  const desktopOptions = {
+    "distortion": "turbulentDistortion",
+    "length": 400,
+    "roadWidth": 10,
+    "islandWidth": 2,
+    "lanesPerRoad": 3,
+    "fov": 90,
+    "fovSpeedUp": 150,
+    "speedUp": 2.5,
+    "carLightsFade": 0.4,
+    "totalSideLightSticks": 20,
+    "lightPairsPerRoadWay": 40,
+    "shoulderLinesWidthPercentage": 0.05,
+    "brokenLinesWidthPercentage": 0.1,
+    "brokenLinesLengthPercentage": 0.5,
+    "lightStickWidth": [0.12, 0.5] as [number, number],
+    "lightStickHeight": [1.3, 1.7] as [number, number],
+    "movingAwaySpeed": [60, 80] as [number, number],
+    "movingCloserSpeed": [-120, -160] as [number, number],
+    "carLightsLength": [12, 80] as [number, number],
+    "carLightsRadius": [0.05, 0.14] as [number, number],
+    "carWidthPercentage": [0.3, 0.5] as [number, number],
+    "carShiftX": [-0.8, 0.8] as [number, number],
+    "carFloorSeparation": [0, 5] as [number, number],
+    "colors": {
+      "roadColor": 526344,
+      "islandColor": 657930,
+      "background": 0,
+      "shoulderLines": 1250072,
+      "brokenLines": 1250072,
+      "leftCars": [14177983, 6770850, 12732332],
+      "rightCars": [242627, 941733, 3294549],
+      "sticks": 242627
+    },
+    "onSpeedUp": (ev: any) => ev.preventDefault(),
+    "onSlowDown": (ev: any) => ev.preventDefault()
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-background">
       {/* HyperSpeed Background Effect */}
       <div className="absolute inset-0 w-full h-full z-0 opacity-40" style={{ pointerEvents: 'none' }}>
         <div className="w-full h-full" style={{ pointerEvents: 'auto' }}>
-          <Hyperspeed
-            effectOptions={{
-              "distortion": "turbulentDistortion",
-              "length": 400,
-              "roadWidth": 10,
-              "islandWidth": 2,
-              "lanesPerRoad": 3,
-              "fov": 90,
-              "fovSpeedUp": 150,
-              "speedUp": 2.5,
-              "carLightsFade": 0.4,
-              "totalSideLightSticks": 20,
-              "lightPairsPerRoadWay": 40,
-              "shoulderLinesWidthPercentage": 0.05,
-              "brokenLinesWidthPercentage": 0.1,
-              "brokenLinesLengthPercentage": 0.5,
-              "lightStickWidth": [0.12, 0.5],
-              "lightStickHeight": [1.3, 1.7],
-              "movingAwaySpeed": [60, 80],
-              "movingCloserSpeed": [-120, -160],
-              "carLightsLength": [12, 80],
-              "carLightsRadius": [0.05, 0.14],
-              "carWidthPercentage": [0.3, 0.5],
-              "carShiftX": [-0.8, 0.8],
-              "carFloorSeparation": [0, 5],
-              "colors": {
-                "roadColor": 526344,
-                "islandColor": 657930,
-                "background": 0,
-                "shoulderLines": 1250072,
-                "brokenLines": 1250072,
-                "leftCars": [14177983, 6770850, 12732332],
-                "rightCars": [242627, 941733, 3294549],
-                "sticks": 242627
-              },
-              "onSpeedUp": (ev) => {
-                ev.preventDefault();
-              },
-              "onSlowDown": (ev) => {
-                ev.preventDefault();
-              }
-            }}
-          />
+          <Hyperspeed effectOptions={isMobile ? mobileOptions : desktopOptions} />
         </div>
       </div>
 
