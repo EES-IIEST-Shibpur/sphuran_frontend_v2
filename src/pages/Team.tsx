@@ -2,132 +2,133 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import Footer from '@/components/Footer';
+import { BackgroundBeams } from '@/components/ui/background-beams';
 
 const teamData = {
   faculty: [
-    { name: 'Professor Bhaskaran Barman', role: 'Professor-in-Charge, Electrical Engineers\' Society' },
-    { name: 'Professor Anirudh Nath', role: 'Conveyor, SPHURAN 4.0' },
-    { name: 'Professor Sayid Abdul Qasim', role: 'Co-Conveyor, SPHURAN 4.0' }
+    { name: 'Prof. Bhaskaran Barman', role: 'Professor-in-Charge, Electrical Engineers\' Society' },
+    { name: 'Prof. Anirudh Nath', role: 'Convenor, SPHURAN 4.0' },
+    { name: 'Prof. Syed Abdullah Qasim', role: 'Co-Convenor, SPHURAN 4.0' }
   ],
   mainCoordinators: [
-    { name: 'Devendra Prasad' },
-    { name: 'Deepak Garg' },
-    { name: 'Ambhrin Roy' }
+    { name: 'Devendra Prasad', year: 4 },
+    { name: 'Deepak Garg', year: 4 },
+    { name: 'Ambhrin Roy', year: 4 }
   ],
   jointCoordinators: [
-    { name: 'Aman Kumar Mehta' },
-    { name: 'Sandip Kumar Das' }
+    { name: 'Aman Kumar Mehta', year: 3 },
+    { name: 'Sandip Kumar Das', year: 3 }
   ],
   financeAudit: {
-    head: [{ name: 'Niloy Mondal' }],
-    associateHead: [{ name: 'Suryansh Singh' }],
-    associates: [{ name: 'Aditya Kumar Vats' }]
+    head: [{ name: 'Niloy Mondal', year: 4 }],
+    associateHead: [{ name: 'Suryansh Singh', year: 3 }],
+    associates: [{ name: 'Aditya Kumar Vats', year: 2 }]
   },
   design: {
-    head: [{ name: 'Saatwata Sen' }],
+    head: [{ name: 'Saatwata Sen', year: 4 }],
     associateHead: [
-      { name: 'Sumit Kumar' },
-      { name: 'Anshita' },
-      { name: 'Aarush Roy' }
+      { name: 'Sumit Kumar', year: 3 },
+      { name: 'Anshita', year: 3 },
+      { name: 'Aarush Roy', year: 3 }
     ],
     associates: [
-      { name: 'Jannat Parveen' },
-      { name: 'Daksha Raj' },
-      { name: 'Tanusree Gupta' },
-      { name: 'Shreya Goswami' }
+      { name: 'Jannat Parveen', year: 2 },
+      { name: 'Daksha Raj', year: 2 },
+      { name: 'Tanusree Gupta', year: 2 },
+      { name: 'Shreya Goswami', year: 2 }
     ]
   },
   sponsorship: {
     head: [
-      { name: 'Rudra Pratap Singh' },
-      { name: 'Esha Kumari' },
-      { name: 'Hrishit Das' }
+      { name: 'Rudra Pratap Singh', year: 4 },
+      { name: 'Esha Kumari', year: 4 },
+      { name: 'Hrishit Das', year: 4 }
     ],
     associateHead: [
-      { name: 'Amit Kiran Das' },
-      { name: 'Keshav Bhagat' },
-      { name: 'Banoth Amitha' },
-      { name: 'Shreya Sen' }
+      { name: 'Amit Kiran Das', year: 3 },
+      { name: 'Keshav Bhagat', year: 3 },
+      { name: 'Banoth Amitha', year: 3 },
+      { name: 'Shreya Sen', year: 3 }
     ],
     associates: [
-      { name: 'Ahana pal' },
-      { name: 'Bikramjeet' },
-      { name: 'Joyon rudra pal' },
-      { name: 'Alok Kumar' },
-      { name: 'Ayisa Nithara S G' }
+      { name: 'Ahana pal', year: 2 },
+      { name: 'Bikramjeet', year: 2 },
+      { name: 'Joyon rudra pal', year: 2 },
+      { name: 'Alok Kumar', year: 2 },
+      { name: 'Ayisa Nithara S G', year: 2 }
     ]
   },
   publicity: {
     head: [
-      { name: 'Ishika Singh' },
-      { name: 'Abhay Raj Singh' }
+      { name: 'Ishika Singh', year: 4 },
+      { name: 'Abhay Raj Singh', year: 4 }
     ],
     associateHead: [
-      { name: 'Dhruv Kumar' },
-      { name: 'Lonisha Rudra' },
-      { name: 'Adarsh Raj' }
+      { name: 'Dhruv Kumar', year: 3 },
+      { name: 'Lonisha Rudra', year: 3 },
+      { name: 'Adarsh Raj', year: 3 }
     ],
     associates: [
-      { name: 'Shruti Tudu' },
-      { name: 'Biswaroop Sinha' },
-      { name: 'Koutilya Shashwat' }
+      { name: 'Shruti Tudu', year: 2 },
+      { name: 'Biswaroop Sinha', year: 2 },
+      { name: 'Koutilya Shashwat', year: 2 }
     ]
   },
   eventManagement: {
     head: [
-      { name: 'Anay Verma' },
-      { name: 'Shekhar Pal' }
+      { name: 'Anay Verma', year: 4 },
+      { name: 'Shekhar Pal', year: 4 }
     ],
     associateHead: [
-      { name: 'Kilari Dheeraj Kumar' },
-      { name: 'Bithika Mondal' },
-      { name: 'Mahesh Purohit' },
-      { name: 'Preeti Bhargava' }
+      { name: 'Kilari Dheeraj Kumar', year: 3 },
+      { name: 'Bithika Mondal', year: 3 },
+      { name: 'Mahesh Purohit', year: 3 },
+      { name: 'Preeti Bhargava', year: 3 }
     ],
     associates: [
-      { name: 'Debangik Biswas' },
-      { name: 'Ahmad Raza Beg' },
-      { name: 'Kunal Bhaskar' },
-      { name: 'Ravi Ranjan Patel' },
-      { name: 'Samrat Das' }
+      { name: 'Debangik Biswas', year: 2 },
+      { name: 'Ahmad Raza Beg', year: 2 },
+      { name: 'Kunal Bhaskar', year: 2 },
+      { name: 'Ravi Ranjan Patel', year: 2 },
+      { name: 'Samrat Das', year: 2 }
     ]
   },
   website: {
-    head: [{ name: 'Sakshi Kailas Pardhi' }],
-    associateHead: [{ name: 'Aminul Islam' }],
+    head: [{ name: 'Sakshi Kailas Pardhi', year: 4 }],
+    associateHead: [{ name: 'Aminul Islam', year: 3 }],
     associates: [
-      { name: 'Shivam Kumar' },
-      { name: 'Vijay Nitin Deshmukh' }
+      { name: 'Shivam Kumar', year: 2 },
+      { name: 'Vijay Nitin Deshmukh', year: 2 }
     ]
   },
   travelLogistics: {
     head: [
-      { name: 'Sandeep Raj' },
-      { name: 'Akash kumar Bharti' }
+      { name: 'Sandeep Raj', year: 4 },
+      { name: 'Akash kumar Bharti', year: 4 }
     ],
     associateHead: [
-      { name: 'Ashutosh Kumar' },
-      { name: 'Gugulothu Krupakaran' },
-      { name: 'Harsh Kamal' },
-      { name: 'Piyush Raj' }
+      { name: 'Ashutosh Kumar', year: 3 },
+      { name: 'Gugulothu Krupakaran', year: 3 },
+      { name: 'Harsh Kamal', year: 3 },
+      { name: 'Piyush Raj', year: 3 }
     ],
     associates: [
-      { name: 'Bisani Love Vijay' },
-      { name: 'Gaurav Sau' },
-      { name: 'Shivam Yadav' },
-      { name: 'Kurada Venkata Sai Purnesh' }
+      { name: 'Bisani Love Vijay', year: 2 },
+      { name: 'Gaurav Sau', year: 2 },
+      { name: 'Shivam Yadav', year: 2 },
+      { name: 'Kurada Venkata Sai Purnesh', year: 2 }
     ]
   },
   volunteers: [
-    { name: 'Saptarshi Mallick' },
-    { name: 'PENDELA VINAY RAJ' },
-    { name: 'Ankul Kumar' },
-    { name: 'Harshit Awasthi' },
-    { name: 'Keshav Kumar' }
+    { name: 'Saptarshi Mallick', year: 4 },
+    { name: 'PENDELA VINAY RAJ', year: 3 },
+    { name: 'Ankul Kumar', year: 3 },
+    { name: 'Harshit Awasthi', year: 3 },
+    { name: 'Keshav Kumar', year: 3 }
   ]
 };
 
-const TeamSection = ({ title, members, expandable = false }: { title: string; members: { name: string; role?: string }[]; expandable?: boolean }) => {
+const TeamSection = ({ title, members, expandable = false }: { title: string; members: { name: string; role?: string; year?: number }[]; expandable?: boolean }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const displayMembers = expandable && !isExpanded ? members.slice(0, 3) : members;
 
@@ -140,7 +141,14 @@ const TeamSection = ({ title, members, expandable = false }: { title: string; me
             key={index}
             className="p-4 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors"
           >
-            <p className="font-display text-sm font-semibold text-foreground">{member.name}</p>
+            <p className="font-display text-sm font-semibold text-foreground">
+              {member.name}
+              {member.year && (
+                <span className="text-xs text-accent ml-2 font-normal">
+                  ({member.year}<sup>{member.year === 1 ? 'st' : member.year === 2 ? 'nd' : member.year === 3 ? 'rd' : 'th'}</sup> year)
+                </span>
+              )}
+            </p>
             {member.role && (
               <p className="font-body text-xs text-muted-foreground mt-1">{member.role}</p>
             )}
@@ -174,7 +182,7 @@ const DepartmentSection = ({
   department 
 }: { 
   title: string; 
-  department: { head: { name: string }[]; associateHead: { name: string }[]; associates: { name: string }[] } 
+  department: { head: { name: string; role?: string; year?: number }[]; associateHead: { name: string; role?: string; year?: number }[]; associates: { name: string; role?: string; year?: number }[] } 
 }) => {
   return (
     <div className="mb-8">
@@ -192,9 +200,12 @@ const DepartmentSection = ({
 
 const Team = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Background Beams */}
+      <BackgroundBeams className="absolute inset-0 z-0" />
+      
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border relative">
         <div className="container mx-auto px-4 md:px-6 py-4">
           <Link 
             to="/"
@@ -207,7 +218,7 @@ const Team = () => {
       </header>
 
       {/* Content */}
-      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 relative z-10">
         {/* Page Header */}
         <div className="mb-16">
           <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
