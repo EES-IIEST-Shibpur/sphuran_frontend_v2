@@ -11,9 +11,13 @@ const Events = memo(() => {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
   
+  // Separate competitive and special events
+  const competitiveEvents = events.filter(e => !e.isSpecialEvent);
+  const specialEvents = events.filter(e => e.isSpecialEvent);
+  
   const filteredEvents = activeCategory === 'All' 
-    ? events 
-    : events.filter(e => e.category === activeCategory);
+    ? competitiveEvents 
+    : competitiveEvents.filter(e => e.category === activeCategory);
 
   const handleEventClick = useCallback((event: Event) => {
     setSelectedEvent(event);
@@ -65,7 +69,7 @@ const Events = memo(() => {
                 </h1>
                 <div className="flex items-center gap-4 mt-4">
                   <div className="w-16 h-1 bg-primary" />
-                  <span className="font-display text-xl text-primary">{events.length} Events</span>
+                  <span className="font-display text-xl text-primary">{competitiveEvents.length} Competitive Events</span>
                 </div>
               </div>
               
@@ -129,6 +133,66 @@ const Events = memo(() => {
                 </div>
               ))}
             </div>
+
+            {/* Special Events Section */}
+            {activeCategory === 'All' && (
+              <div className="mt-24">
+                <div className="mb-12">
+                  <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
+                    Beyond Competition
+                  </span>
+                  <h2 className="font-display text-4xl md:text-6xl font-black text-foreground mt-4 leading-none">
+                    SPECIAL EVENTS
+                  </h2>
+                  <div className="w-16 h-1 bg-primary mt-6" />
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8">
+                  {specialEvents.map((event) => (
+                    <div
+                      key={event.title}
+                      onClick={() => handleEventClick(event)}
+                      className="group cursor-pointer bg-card border border-border hover:border-primary transition-all duration-300 overflow-hidden"
+                    >
+                      {/* Image Section */}
+                      {event.image ? (
+                        <div className="relative h-64 overflow-hidden">
+                          <img 
+                            src={event.image} 
+                            alt={event.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      ) : (
+                        <div className="relative h-64 bg-card/50 flex items-center justify-center">
+                          <event.icon className="w-16 h-16 text-primary/20" strokeWidth={1} />
+                        </div>
+                      )}
+                      
+                      {/* Content */}
+                      <div className="p-6">
+                        <div className="flex items-center gap-2 mb-3">
+                          <event.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+                          <span className="font-body text-xs tracking-wider uppercase text-primary">
+                            {event.category}
+                          </span>
+                        </div>
+                        <h3 className="font-display text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                          {event.title}
+                        </h3>
+                        <p className="font-body text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">
+                          {event.description}
+                        </p>
+                        <div className="flex items-center justify-between text-xs font-body text-muted-foreground">
+                          <span>{event.date}</span>
+                          <span className="text-primary group-hover:translate-x-1 transition-transform">→</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </main>

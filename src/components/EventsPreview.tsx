@@ -8,8 +8,12 @@ import { events, Event } from '@/lib/eventsData';
 const EventsPreview = memo(() => {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   
-  // Show first 4 events as preview
-  const featuredEvents = events.slice(0, 4);
+  // Separate competitive events from special events
+  const competitiveEvents = events.filter(e => !e.isSpecialEvent);
+  const specialEventsCount = events.filter(e => e.isSpecialEvent).length;
+  
+  // Show first 4 competitive events as preview
+  const featuredEvents = competitiveEvents.slice(0, 4);
 
   const handleEventClick = useCallback((event: Event) => {
     setSelectedEvent(event);
@@ -39,7 +43,7 @@ const EventsPreview = memo(() => {
               </h2>
               <div className="flex items-center gap-4 mt-4">
                 <div className="w-16 h-1 bg-primary" />
-                <span className="font-display text-xl text-primary">{events.length} Events</span>
+                <span className="font-display text-xl text-primary">{competitiveEvents.length} Competitive + {specialEventsCount} Special</span>
               </div>
             </div>
             
@@ -101,7 +105,7 @@ const EventsPreview = memo(() => {
             to="/events"
             className="group inline-flex items-center gap-2 px-8 py-4 border-2 border-primary text-primary font-display text-sm tracking-wider hover:bg-primary hover:text-primary-foreground transition-all"
           >
-            Explore All {events.length} Events
+            Explore All {competitiveEvents.length} Competitive Events + {specialEventsCount} Special Events
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

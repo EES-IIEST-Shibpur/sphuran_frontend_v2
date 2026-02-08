@@ -24,6 +24,8 @@ interface EventDetailModalProps {
   contact?: string;
   rulebookLink?: string;
   registrationLink?: string;
+  image?: string;
+  isSpecialEvent?: boolean;
 }
 
 const EventDetailModal = memo(({
@@ -42,10 +44,26 @@ const EventDetailModal = memo(({
   contact = 'sphuran@eesiiests.org',
   rulebookLink = 'https://drive.google.com',
   registrationLink = 'https://forms.google.com',
+  image,
+  isSpecialEvent = false,
 }: EventDetailModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-card border-border">
+        {/* Image Banner for Special Events */}
+        {image && isSpecialEvent && (
+          <div className="-m-6 mb-6">
+            <div className="relative h-80 overflow-hidden">
+              <img 
+                src={image} 
+                alt={title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+            </div>
+          </div>
+        )}
+        
         <DialogHeader>
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-4">
@@ -76,7 +94,7 @@ const EventDetailModal = memo(({
             </div>
             <div className="p-4 bg-background border border-border rounded-lg">
               <p className="text-xs text-muted-foreground font-body uppercase tracking-wider mb-1">Prize Pool</p>
-              <p className="text-sm font-display font-semibold text-primary">₹{prize}</p>
+              <p className="text-sm font-display font-semibold text-primary">{prize === 'TBA' || prize === '-' ? prize : `₹${prize}`}</p>
             </div>
             <div className="p-4 bg-background border border-border rounded-lg">
               <p className="text-xs text-muted-foreground font-body uppercase tracking-wider mb-1">Team Size</p>
