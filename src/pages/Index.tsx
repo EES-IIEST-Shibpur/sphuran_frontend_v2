@@ -7,7 +7,7 @@ const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v17705361
 // Lazy load heavy components for better performance
 const HeroSection = lazy(() => import('@/components/HeroSection'));
 const AboutSection = lazy(() => import('@/components/AboutSection'));
-const EventsSection = lazy(() => import('@/components/EventsSection'));
+const EventsPreview = lazy(() => import('@/components/EventsPreview'));
 const ScheduleSection = lazy(() => import('@/components/ScheduleSection'));
 const ContactSection = lazy(() => import('@/components/ContactSection'));
 const PastSponsers = lazy(() => import('@/components/PastSponsers'));
@@ -33,7 +33,7 @@ const Index = () => {
         </Suspense>
         
         <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
-          <EventsSection />
+          <EventsPreview />
         </Suspense>
         
         <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>

@@ -11,6 +11,7 @@ const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v17705361
 const Index = lazy(() => import("./pages/Index"));
 const Team = lazy(() => import("./pages/Team"));
 const Sponsor = lazy(() => import("./pages/Sponsor"));
+const Events = lazy(() => import("./pages/Events"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
         }>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/events" element={<Events />} />
             <Route path="/team" element={<Team />} />
             <Route path="/sponsor" element={<Sponsor />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

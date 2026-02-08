@@ -60,7 +60,7 @@ const Footer = memo(() => {
             <div className="text-center sm:text-left">
               <h4 className="font-display text-sm tracking-widest uppercase text-foreground mb-4 md:mb-6">Quick Links</h4>
               <div className="space-y-3">
-                {['Home', 'About', 'Events', 'Schedule', 'Contact'].map((link) => (
+                {['Home', 'About', 'Schedule', 'Contact'].map((link) => (
                   <a
                     key={link}
                     href={`#${link.toLowerCase()}`}
@@ -70,6 +70,12 @@ const Footer = memo(() => {
                     {link}
                   </a>
                 ))}
+                <Link
+                  to="/events"
+                  className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Events
+                </Link>
                 <Link
                   to="/team"
                   className="block font-body text-sm text-muted-foreground hover:text-primary transition-colors"

@@ -9,7 +9,7 @@ const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v17705361
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Events', href: '#events' },
+  { label: 'Events', href: '/events' },
   { label: 'Contact', href: '#contact' },
   { label: 'Sponsors', href: '/sponsor' },
   { label: 'Team', href: '/team' },
