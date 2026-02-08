@@ -1,154 +1,43 @@
-import { useEffect, useState, memo, useCallback } from 'react';
-import Hyperspeed from './ui/animatedComponents/hyperSpeed';
+import { memo } from 'react';
 import TextType from './ui/animatedComponents/textType';
 import ShinyText from './ui/animatedComponents/shinyText';
 
 const HeroSection = memo(() => {
-  const [scrollY, setScrollY] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const handleScroll = useCallback(() => setScrollY(window.scrollY), []);
-  const checkMobile = useCallback(() => setIsMobile(window.innerWidth < 768), []);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
-
-  useEffect(() => {
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, [checkMobile]);
-
-  // Mobile-optimized settings (reduced quality for performance)
-  const mobileOptions = {
-    "distortion": "turbulentDistortion",
-    "length": 300,
-    "roadWidth": 9,
-    "islandWidth": 1.5,
-    "lanesPerRoad": 2,
-    "fov": 90,
-    "fovSpeedUp": 150,
-    "speedUp": 2,
-    "carLightsFade": 0.4,
-    "totalSideLightSticks": 8,
-    "lightPairsPerRoadWay": 15,
-    "shoulderLinesWidthPercentage": 0.05,
-    "brokenLinesWidthPercentage": 0.1,
-    "brokenLinesLengthPercentage": 0.5,
-    "lightStickWidth": [0.12, 0.4] as [number, number],
-    "lightStickHeight": [1.2, 1.5] as [number, number],
-    "movingAwaySpeed": [50, 70] as [number, number],
-    "movingCloserSpeed": [-100, -140] as [number, number],
-    "carLightsLength": [12, 60] as [number, number],
-    "carLightsRadius": [0.05, 0.12] as [number, number],
-    "carWidthPercentage": [0.3, 0.5] as [number, number],
-    "carShiftX": [-0.8, 0.8] as [number, number],
-    "carFloorSeparation": [0, 3] as [number, number],
-    "colors": {
-      "roadColor": 526344,
-      "islandColor": 657930,
-      "background": 0,
-      "shoulderLines": 1250072,
-      "brokenLines": 1250072,
-      "leftCars": [14177983, 6770850, 12732332],
-      "rightCars": [242627, 941733, 3294549],
-      "sticks": 242627
-    },
-    "onSpeedUp": (ev: any) => ev.preventDefault(),
-    "onSlowDown": (ev: any) => ev.preventDefault()
-  };
-
-  // Desktop settings (full quality)
-  const desktopOptions = {
-    "distortion": "turbulentDistortion",
-    "length": 400,
-    "roadWidth": 10,
-    "islandWidth": 2,
-    "lanesPerRoad": 3,
-    "fov": 90,
-    "fovSpeedUp": 150,
-    "speedUp": 2.5,
-    "carLightsFade": 0.4,
-    "totalSideLightSticks": 20,
-    "lightPairsPerRoadWay": 40,
-    "shoulderLinesWidthPercentage": 0.05,
-    "brokenLinesWidthPercentage": 0.1,
-    "brokenLinesLengthPercentage": 0.5,
-    "lightStickWidth": [0.12, 0.5] as [number, number],
-    "lightStickHeight": [1.3, 1.7] as [number, number],
-    "movingAwaySpeed": [60, 80] as [number, number],
-    "movingCloserSpeed": [-120, -160] as [number, number],
-    "carLightsLength": [12, 80] as [number, number],
-    "carLightsRadius": [0.05, 0.14] as [number, number],
-    "carWidthPercentage": [0.3, 0.5] as [number, number],
-    "carShiftX": [-0.8, 0.8] as [number, number],
-    "carFloorSeparation": [0, 5] as [number, number],
-    "colors": {
-      "roadColor": 526344,
-      "islandColor": 657930,
-      "background": 0,
-      "shoulderLines": 1250072,
-      "brokenLines": 1250072,
-      "leftCars": [14177983, 6770850, 12732332],
-      "rightCars": [242627, 941733, 3294549],
-      "sticks": 242627
-    },
-    "onSpeedUp": (ev: any) => ev.preventDefault(),
-    "onSlowDown": (ev: any) => ev.preventDefault()
-  };
-
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-background">
-      {/* HyperSpeed Background Effect */}
-      <div className="absolute inset-0 w-full h-full z-0 opacity-40" style={{ pointerEvents: 'none' }}>
-        <div className="w-full h-full" style={{ pointerEvents: 'auto' }}>
-          <Hyperspeed effectOptions={isMobile ? mobileOptions : desktopOptions} />
-        </div>
+      {/* Hero Background Image */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <img
+          src="https://res.cloudinary.com/dwr8472qb/image/upload/v1770570220/13930a9cc351a2de5d089e2a09c77a51_mult1j.jpg"
+          alt="Sphuran Hero"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
       </div>
 
       {/* Floating Badges */}
-      {/* <div className="absolute top-32 left-8 md:left-16 z-20 animate-float">
-        <div className="px-4 py-2 bg-card border border-border rounded-full font-body text-xs md:text-sm tracking-widest text-muted-foreground">
+      <div className="absolute top-32 left-8 md:left-16 lg:left-32 z-20 animate-float">
+        <div className="px-4 py-2 bg-card/90 backdrop-blur border border-border rounded-full font-body text-xs md:text-sm tracking-widest text-foreground font-semibold">
           2026
         </div>
-      </div> */}
+      </div>
 
-      <div className="absolute top-24 sm:top-32 md:top-40 right-4 sm:right-8 md:right-20 z-20 animate-float" style={{ animationDelay: '1s' }}>
-        <div className="px-3 py-1.5 md:px-4 md:py-2 bg-primary text-primary-foreground rounded-full font-display text-[10px] sm:text-xs md:text-sm tracking-wider font-bold">
+      <div className="absolute top-48 md:top-56 left-1/3 md:left-1/2 -translate-x-1/2 z-20 animate-float" style={{ animationDelay: '0.5s' }}>
+        <div className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-display text-xs md:text-sm tracking-wider font-bold">
           4TH EDITION
         </div>
       </div>
 
-      {/* <div className="absolute top-56 left-1/2 -translate-x-1/2 z-20 animate-float" style={{ animationDelay: '0.5s' }}>
-        <div className="px-6 py-3 bg-card/80 backdrop-blur border border-primary/30 rounded-full font-body text-xs tracking-widest text-primary">
-          EES IIEST SHIBPUR
-        </div>
-      </div> */}
-
       {/* Main Content */}
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Logo positioned creatively */}
-        {/* <div 
-          className="absolute -top-4 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-12 lg:right-24 z-30"
-          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-        >
-          <img 
-            src={sphuranLogo} 
-            alt="Sphuran Logo" 
-            className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain rounded-2xl shadow-2xl border-2 border-primary/30 animate-pulse-slow"
-          />
-        </div> */}
-
+      <div className="container mx-auto px-4 relative z-10 overflow-hidden">
         {/* Massive Typography - SPHURAN */}
-        <div className="relative mt-2 sm:mt-16 md:mt-24 lg:mt-32">
-          <h1 className="font-display text-[3.5rem] sm:text-[5rem] md:text-[8rem] lg:text-[12rem] xl:text-[16rem] font-black tracking-tighter text-foreground leading-none select-none">
+        <div className="relative mt-2 sm:mt-8 md:mt-16 lg:mt-24 text-center w-full">
+          <h1 className="font-display text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] xl:text-[13rem] font-black tracking-tighter text-foreground leading-none select-none drop-shadow-2xl max-w-full">
             <ShinyText
               text="SPHURAN"
               speed={2}
               delay={0}
-              color="#b5b5b5"
+              color="#e5e5e5"
               shineColor="#ffffff"
               spread={120}
               direction="left"
@@ -159,13 +48,13 @@ const HeroSection = memo(() => {
           </h1>
 
           {/* 4.0 overlapping */}
-          <div className="absolute -bottom-8 sm:-bottom-16 md:-bottom-72 right-4 sm:right-8 md:right-20">
-            <span className="font-display text-[3rem] sm:text-[5rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] font-black text-primary text-glow-strong leading-none select-none opacity-90">
+          <div className="absolute -bottom-8 sm:-bottom-16 md:-bottom-24 lg:-bottom-32 right-4 sm:right-12 md:right-20 lg:right-32">
+            <span className="font-display text-[3rem] sm:text-[5rem] md:text-[8rem] lg:text-[12rem] xl:text-[15rem] font-black text-primary text-glow-strong leading-none select-none opacity-90">
               4.0
             </span>
           </div>
           {/* Coming Soon */}
-          <div className='absolute -bottom-8 sm:-bottom-32 md:-bottom-[370px] left-0 sm:left-auto sm:right-8 md:right-48 text-sm sm:text-lg md:text-2xl lg:text-3xl text-white font-display text-glow font-bold tracking-wide px-2 sm:px-4 py-1 sm:py-2 rounded-lg'>
+          <div className='absolute -bottom-8 sm:-bottom-20 md:-bottom-32 lg:-bottom-40 left-4 sm:left-8 md:left-12 text-xs sm:text-base md:text-xl lg:text-2xl text-white font-display text-glow font-bold tracking-wide px-2 sm:px-4 py-1 sm:py-2 rounded-lg'>
             <TextType
               text={["Coming Soon!", "Prepare to Outsmart", "Stay Wired!"]}
               typingSpeed={75}
@@ -180,22 +69,22 @@ const HeroSection = memo(() => {
         </div>
 
         {/* Tagline */}
-        <div className="mt-16 sm:mt-20 md:mt-32 max-w-xl">
+        <div className="mt-20 sm:mt-28 md:mt-40 lg:mt-52 max-w-2xl mx-auto text-center">
           <p className="font-body text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase text-muted-foreground mb-3 md:mb-4">
             Electrical Engineers' Society Presents
           </p>
-          <h2 className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-foreground tracking-wide mb-4 md:mb-6">
+          <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl text-foreground tracking-wide mb-4 md:mb-6">
             WHERE INNOVATION<br />
             MEETS <span className="text-primary">EXCELLENCE</span>
           </h2>
-          <p className="font-body text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed">
+          <p className="font-body text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
             The technical festival of the Electrical Engineering Department at IIEST Shibpur,
             bringing together students, industry leaders, and researchers to showcase technical skills and innovations.
           </p>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-12">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-12">
           <a
             href="#events"
             className="group px-6 sm:px-8 py-3 sm:py-4 bg-primary text-primary-foreground font-display text-xs sm:text-sm tracking-widest uppercase hover:bg-primary/90 transition-all duration-300 box-glow hover:box-glow-strong"
@@ -212,33 +101,25 @@ const HeroSection = memo(() => {
         </div>
 
         {/* Stats Row */}
-        <div className="flex flex-wrap gap-6 sm:gap-8 md:gap-16 mt-12 sm:mt-16 md:mt-24">
-          <div>
-            <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-glow">4</div>
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 mt-10 sm:mt-12 md:mt-16">
+          <div className="text-center">
+            <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary text-glow">4</div>
             <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Edition</div>
           </div>
-          <div>
-            <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">9+</div>
+          <div className="text-center">
+            <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">9+</div>
             <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Events</div>
           </div>
-          <div>
-            <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">1856</div>
+          <div className="text-center">
+            <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">1856</div>
             <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Est.</div>
           </div>
-          <div>
-            <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">INI</div>
+          <div className="text-center">
+            <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">INI</div>
             <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Status</div>
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      {/* <div className="hidden sm:flex absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 animate-float z-20">
-        <div className="flex flex-col items-center gap-2">
-          <span className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
-        </div>
-      </div> */}
 
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />

@@ -37,6 +37,7 @@ export const events: Event[] = [
         ],
         eligibility: 'Open to all engineering students',
         contact: 'sphuran.ees@gmail.com',
+        image: 'https://res.cloudinary.com/dwr8472qb/image/upload/v1770563231/quiz2_jncgem.svg',
     },
     {
         title: 'Illumination',
@@ -55,6 +56,7 @@ export const events: Event[] = [
         ],
         eligibility: 'Open to all ECE, EE students',
         contact: 'sphuran.ees@gmail.com',
+        image: 'https://res.cloudinary.com/dwr8472qb/image/upload/v1770563231/circuit_ttosyd.svg',
     },
     {
         title: 'Cyberblame',
@@ -73,6 +75,7 @@ export const events: Event[] = [
         ],
         eligibility: 'Open to all students with programming knowledge',
         contact: 'sphuran.ees@gmail.com',
+        image: 'https://res.cloudinary.com/dwr8472qb/image/upload/v1770563231/coding_uffkpq.svg',
     },
     {
         title: 'Adhyayan',
@@ -91,6 +94,7 @@ export const events: Event[] = [
         ],
         eligibility: 'Open to all college students',
         contact: 'sphuran.ees@gmail.com',
+        image: 'https://res.cloudinary.com/dwr8472qb/image/upload/v1770563345/adhyan_e4fzxu.svg',
     },
     {
         title: 'Vidyut Gyan',
@@ -109,6 +113,7 @@ export const events: Event[] = [
         ],
         eligibility: 'Open to all students',
         contact: 'sphuran.ees@gmail.com',
+        image: 'https://res.cloudinary.com/dwr8472qb/image/upload/v1770563231/quiz1_usouxw.svg',
     },
     {
         title: 'Online Gaming',
@@ -127,6 +132,7 @@ export const events: Event[] = [
         ],
         eligibility: 'Open to all gaming enthusiasts',
         contact: 'sphuran.ees@gmail.com',
+        image: 'https://res.cloudinary.com/dwr8472qb/image/upload/v1770563231/video_game_n6vibt.svg',
     },
     {
         title: 'Alumni Convention',
