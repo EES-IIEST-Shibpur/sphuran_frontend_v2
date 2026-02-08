@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react';
 import StarField from '@/components/StarField';
 import Navbar from '@/components/Navbar';
-import sphuranLogo from '@/assets/sphuran-logo.jpg';
+
+const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
 
 // Lazy load heavy components for better performance
 const HeroSection = lazy(() => import('@/components/HeroSection'));

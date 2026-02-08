@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import sphuranLogo from '@/assets/sphuran-logo.jpg';
 import Hyperspeed from './ui/animatedComponents/hyperSpeed';
 import TextType from './ui/animatedComponents/textType';
 import ShinyText from './ui/animatedComponents/shinyText';

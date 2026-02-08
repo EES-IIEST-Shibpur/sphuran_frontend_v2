@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import sphuranLogo from '@/assets/sphuran-logo.jpg';
 import ChipsTab from './ui/tabs/ChipsTab';
 import { StaggeredMenu } from './ui/tabs/StaggeredMenu';
 import { SocialLinks } from '@/lib/utils';
+
+const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
 
 const navItems = [
   { label: 'Home', href: '#home' },
