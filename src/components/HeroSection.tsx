@@ -15,13 +15,6 @@ const HeroSection = memo(() => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
       </div>
 
-      {/* Floating Badges */}
-      <div className="absolute top-32 left-8 md:left-16 lg:left-32 z-20 animate-float">
-        <div className="px-4 py-2 bg-card/90 backdrop-blur border border-border rounded-full font-body text-xs md:text-sm tracking-widest text-foreground font-semibold">
-          2026
-        </div>
-      </div>
-
       <div className="absolute top-48 md:top-56 left-1/3 md:left-1/2 -translate-x-1/2 z-20 animate-float" style={{ animationDelay: '0.5s' }}>
         <div className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-display text-xs md:text-sm tracking-wider font-bold">
           4TH EDITION
