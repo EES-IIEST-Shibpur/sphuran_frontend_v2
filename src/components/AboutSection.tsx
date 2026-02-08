@@ -1,7 +1,9 @@
+import { memo } from 'react';
+
 const eesLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536100/ees-logo_vjjwxn.png";
 const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
 
-const AboutSection = () => {
+const AboutSection = memo(() => {
   return (
     <section id="about" className="relative py-24 md:py-32 overflow-hidden">
       {/* Decorative vertical text */}
@@ -155,6 +157,8 @@ const AboutSection = () => {
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </section>
   );
-};
+});
+
+AboutSection.displayName = 'AboutSection';
 
 export default AboutSection;

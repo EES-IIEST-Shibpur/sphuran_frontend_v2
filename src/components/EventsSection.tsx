@@ -1,7 +1,7 @@
 import { Brain, Gamepad2, Lightbulb, Code, BookOpen, Users, Heart, Music, Zap } from 'lucide-react';
 import EventCard from './EventCard';
 import EventDetailModal from './EventDetailModal';
-import { useState } from 'react';
+import { useState, memo, useCallback } from 'react';
 
 export interface Event {
   title: string;
@@ -186,13 +186,30 @@ const events: Event[] = [
 
 const categories = ['All', 'Quiz', 'Coding', 'Circuit Simulation', 'Case Study', 'Gaming', 'Cultural'];
 
-const EventsSection = () => {
+const EventsSection = memo(() => {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
   
   const filteredEvents = activeCategory === 'All' 
     ? events 
     : events.filter(e => e.category === activeCategory);
+
+  const handleEventClick = useCallback((event: Event) => {
+    setSelectedEvent(event);
+  }, []);
+
+  const handleCategoryClick = useCallback((category: string) => {
+    setActiveCategory(category);
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setSelectedEvent(null);
+  }, []);
+
+  const handleFlagshipClick = useCallback(() => {
+    const electroquip = events.find(e => e.title === 'Electroquip');
+    if (electroquip) setSelectedEvent(electroquip);
+  }, []);
 
   return (
     <section id="events" className="relative py-24 md:py-32 overflow-hidden bg-card/30">
@@ -217,7 +234,7 @@ const EventsSection = () => {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => handleCategoryClick(cat)}
                 className={`px-4 py-2 font-body text-xs tracking-wider uppercase transition-all duration-300 rounded-full border ${
                   activeCategory === cat
                     ? 'bg-primary text-primary-foreground border-primary'
@@ -247,7 +264,7 @@ const EventsSection = () => {
                   power systems, and control systems. Compete for prizes and recognition as a top performer.
                 </p>
                 <button 
-                  onClick={() => setSelectedEvent(events.find(e => e.title === 'Electroquip') || null)}
+                  onClick={handleFlagshipClick}
                   className="mt-6 px-6 py-3 bg-primary text-primary-foreground font-display text-sm tracking-wider hover:bg-primary/90 transition-all"
                 >
                   VIEW DETAILS
@@ -268,7 +285,7 @@ const EventsSection = () => {
               style={{ animationDelay: `${index * 0.05}s` }}
               className="animate-slide-up"
             >
-              <EventCard {...event} onClick={() => setSelectedEvent(event)} />
+              <EventCard {...event} onClick={() => handleEventClick(event)} />
             </div>
           ))}
         </div>
@@ -278,7 +295,7 @@ const EventsSection = () => {
       {selectedEvent && (
         <EventDetailModal
           isOpen={!!selectedEvent}
-          onClose={() => setSelectedEvent(null)}
+          onClose={handleCloseModal}
           {...selectedEvent}
         />
       )}
@@ -288,6 +305,8 @@ const EventsSection = () => {
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </section>
   );
-};
+});
+
+EventsSection.displayName = 'EventsSection';
 
 export default EventsSection;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import Footer from '@/components/Footer';
@@ -128,7 +128,7 @@ const teamData = {
   ]
 };
 
-const TeamSection = ({ title, members, expandable = false }: { title: string; members: { name: string; role?: string; year?: number }[]; expandable?: boolean }) => {
+const TeamSection = memo(({ title, members, expandable = false }: { title: string; members: { name: string; role?: string; year?: number }[]; expandable?: boolean }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const displayMembers = expandable && !isExpanded ? members.slice(0, 3) : members;
 
@@ -175,9 +175,11 @@ const TeamSection = ({ title, members, expandable = false }: { title: string; me
       )}
     </div>
   );
-};
+});
 
-const DepartmentSection = ({ 
+TeamSection.displayName = 'TeamSection';
+
+const DepartmentSection = memo(({ 
   title, 
   department 
 }: { 
@@ -196,7 +198,9 @@ const DepartmentSection = ({
       </div>
     </div>
   );
-};
+});
+
+DepartmentSection.displayName = 'DepartmentSection';
 
 const Team = () => {
   return (

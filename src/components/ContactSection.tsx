@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone, ExternalLink, Share2 } from 'lucide-react';
 import { FaInstagram, FaLinkedin, FaFacebook, FaWhatsapp } from 'react-icons/fa';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, memo, useCallback } from 'react';
 import axios from 'axios';
 
 const contactCategories = {
@@ -17,7 +17,7 @@ const contactCategories = {
   ]
 };
 
-const ContactSection = () => {
+const ContactSection = memo(() => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,7 +28,7 @@ const ContactSection = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showAllCoordinators, setShowAllCoordinators] = useState(false);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -57,7 +57,7 @@ const ContactSection = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [formData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -363,6 +363,8 @@ const ContactSection = () => {
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </section>
   );
-};
+});
+
+ContactSection.displayName = 'ContactSection';
 
 export default ContactSection;

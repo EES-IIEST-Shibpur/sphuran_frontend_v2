@@ -1,6 +1,6 @@
 'use client';
 
-import { ElementType, useEffect, useRef, useState, createElement, useMemo, useCallback } from 'react';
+import { ElementType, useEffect, useRef, useState, createElement, useMemo, useCallback, memo } from 'react';
 import { gsap } from 'gsap';
 
 interface TextTypeProps {
@@ -24,7 +24,7 @@ interface TextTypeProps {
   reverseMode?: boolean;
 }
 
-const TextType = ({
+const TextType = memo(({
   text,
   as: Component = 'div',
   typingSpeed = 50,
@@ -189,6 +189,8 @@ const TextType = ({
       </span>
     )
   );
-};
+});
+
+TextType.displayName = 'TextType';
 
 export default TextType;

@@ -1,13 +1,14 @@
+import { memo, useCallback } from 'react';
 import { getYear } from 'date-fns';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
 
-const Footer = () => {
+const Footer = memo(() => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleHashNavigation = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+  const handleHashNavigation = useCallback((e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     e.preventDefault();
     if (location.pathname !== '/') {
       navigate('/' + hash);
@@ -23,7 +24,7 @@ const Footer = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  };
+  }, [location.pathname, navigate]);
 
   return (
     <footer className="relative py-8 md:py-12 border-t border-border bg-background">
@@ -164,6 +165,8 @@ const Footer = () => {
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
     </footer>
   );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;

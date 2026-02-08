@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { LucideIcon } from 'lucide-react';
 
 interface EventCardProps {
@@ -10,7 +11,7 @@ interface EventCardProps {
   onClick?: () => void;
 }
 
-const EventCard = ({ title, description, icon: Icon, category, date, prize, onClick }: EventCardProps) => {
+const EventCard = memo(({ title, description, icon: Icon, category, date, prize, onClick }: EventCardProps) => {
   return (
     <div 
       className="group relative h-full bg-background border border-border hover:border-primary transition-all duration-300 overflow-hidden cursor-pointer"
@@ -59,6 +60,8 @@ const EventCard = ({ title, description, icon: Icon, category, date, prize, onCl
       <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-500" />
     </div>
   );
-};
+});
+
+EventCard.displayName = 'EventCard';
 
 export default EventCard;

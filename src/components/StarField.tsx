@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 
 interface Star {
   id: number;
@@ -9,7 +9,7 @@ interface Star {
   duration: number;
 }
 
-const StarField = () => {
+const StarField = memo(() => {
   const [stars, setStars] = useState<Star[]>([]);
 
   useEffect(() => {
@@ -89,6 +89,8 @@ const StarField = () => {
       <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-primary/2 rounded-full blur-[80px]" />
     </div>
   );
-};
+});
+
+StarField.displayName = 'StarField';
 
 export default StarField;

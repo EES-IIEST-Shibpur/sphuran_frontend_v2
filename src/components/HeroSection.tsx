@@ -1,24 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo, useCallback } from 'react';
 import Hyperspeed from './ui/animatedComponents/hyperSpeed';
 import TextType from './ui/animatedComponents/textType';
 import ShinyText from './ui/animatedComponents/shinyText';
 
-const HeroSection = () => {
+const HeroSection = memo(() => {
   const [scrollY, setScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleScroll = useCallback(() => setScrollY(window.scrollY), []);
+  const checkMobile = useCallback(() => setIsMobile(window.innerWidth < 768), []);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  useEffect(() => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  }, [checkMobile]);
 
   // Mobile-optimized settings (reduced quality for performance)
   const mobileOptions = {
@@ -244,6 +245,8 @@ const HeroSection = () => {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
     </section>
   );
-};
+});
+
+HeroSection.displayName = 'HeroSection';
 
 export default HeroSection;

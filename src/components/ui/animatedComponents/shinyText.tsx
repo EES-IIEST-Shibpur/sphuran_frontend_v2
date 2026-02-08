@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef, memo } from 'react';
 import { motion, useMotionValue, useAnimationFrame, useTransform } from 'motion/react';
 
 interface ShinyTextProps {
@@ -15,7 +15,7 @@ interface ShinyTextProps {
   delay?: number;
 }
 
-const ShinyText: React.FC<ShinyTextProps> = ({
+const ShinyText: React.FC<ShinyTextProps> = memo(({
   text,
   disabled = false,
   speed = 2,
@@ -126,7 +126,9 @@ const ShinyText: React.FC<ShinyTextProps> = ({
       {text}
     </motion.span>
   );
-};
+});
+
+ShinyText.displayName = 'ShinyText';
 
 export default ShinyText;
 //   plugins: [],

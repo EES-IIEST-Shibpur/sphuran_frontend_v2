@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { LucideIcon, X, ExternalLink, FileText, UserPlus } from 'lucide-react';
 import {
   Dialog,
@@ -25,7 +26,7 @@ interface EventDetailModalProps {
   registrationLink?: string;
 }
 
-const EventDetailModal = ({
+const EventDetailModal = memo(({
   isOpen,
   onClose,
   title,
@@ -147,6 +148,8 @@ const EventDetailModal = ({
       </DialogContent>
     </Dialog>
   );
-};
+});
+
+EventDetailModal.displayName = 'EventDetailModal';
 
 export default EventDetailModal;

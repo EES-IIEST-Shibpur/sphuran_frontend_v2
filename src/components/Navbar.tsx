@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import ChipsTab from './ui/tabs/ChipsTab';
 import { StaggeredMenu } from './ui/tabs/StaggeredMenu';
@@ -26,7 +26,7 @@ const socialLinks = SocialLinks.map((social) => ({
   link: social.link,
 }));
 
-const Navbar = () => {
+const Navbar = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
@@ -180,6 +180,8 @@ const Navbar = () => {
       </nav>
     </>
   );
-};
+});
+
+Navbar.displayName = 'Navbar';
 
 export default Navbar;

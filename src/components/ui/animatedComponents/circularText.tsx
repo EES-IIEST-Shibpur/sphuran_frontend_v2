@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { motion, useAnimation, useMotionValue, MotionValue, Transition } from 'motion/react';
 interface CircularTextProps {
   text: string;
@@ -25,7 +25,7 @@ const getTransition = (duration: number, from: number) => ({
   }
 });
 
-const CircularText: React.FC<CircularTextProps> = ({
+const CircularText: React.FC<CircularTextProps> = memo(({
   text,
   spinDuration = 20,
   onHover = 'speedUp',
@@ -117,6 +117,8 @@ const CircularText: React.FC<CircularTextProps> = ({
       })}
     </motion.div>
   );
-};
+});
+
+CircularText.displayName = 'CircularText';
 
 export default CircularText;
