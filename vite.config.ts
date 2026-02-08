@@ -21,4 +21,20 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'three': ['three', 'postprocessing'],
+          'animations': ['gsap', 'motion/react'],
+        }
+      }
+    },
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+      }
+    }
+  }
 }));
