@@ -71,8 +71,8 @@ const HeroSection = () => {
         </div>
       </div> */}
 
-      <div className="absolute top-40 right-8 md:right-20 z-20 animate-float" style={{ animationDelay: '1s' }}>
-        <div className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-display text-xs md:text-sm tracking-wider font-bold">
+      <div className="absolute top-24 sm:top-32 md:top-40 right-4 sm:right-8 md:right-20 z-20 animate-float" style={{ animationDelay: '1s' }}>
+        <div className="px-3 py-1.5 md:px-4 md:py-2 bg-primary text-primary-foreground rounded-full font-display text-[10px] sm:text-xs md:text-sm tracking-wider font-bold">
           4TH EDITION
         </div>
       </div>
@@ -98,8 +98,8 @@ const HeroSection = () => {
         </div> */}
 
         {/* Massive Typography - SPHURAN */}
-        <div className="relative mt-32 md:mt-24">
-          <h1 className="font-display text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[12rem] xl:text-[16rem] font-black tracking-tighter text-foreground leading-none select-none">
+        <div className="relative mt-2 sm:mt-16 md:mt-24 lg:mt-32">
+          <h1 className="font-display text-[3.5rem] sm:text-[5rem] md:text-[8rem] lg:text-[12rem] xl:text-[16rem] font-black tracking-tighter text-foreground leading-none select-none">
             <ShinyText
               text="SPHURAN"
               speed={2}
@@ -115,13 +115,13 @@ const HeroSection = () => {
           </h1>
 
           {/* 4.0 overlapping */}
-          <div className="absolute -bottom-8 md:-bottom-72 right-0 md:right-20">
-            <span className="font-display text-[5rem] sm:text-[7rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] font-black text-primary text-glow-strong leading-none select-none opacity-90">
+          <div className="absolute -bottom-8 sm:-bottom-16 md:-bottom-72 right-4 sm:right-8 md:right-20">
+            <span className="font-display text-[3rem] sm:text-[5rem] md:text-[10rem] lg:text-[14rem] xl:text-[18rem] font-black text-primary text-glow-strong leading-none select-none opacity-90">
               4.0
             </span>
           </div>
           {/* Coming Soon */}
-          <div className='absolute -bottom-8 md:-bottom-[370px] right-0 md:right-48 text-3xl text-white font-display text-glow font-bold tracking-wide px-4 py-2 rounded-lg'>
+          <div className='absolute -bottom-8 sm:-bottom-32 md:-bottom-[370px] left-0 sm:left-auto sm:right-8 md:right-48 text-sm sm:text-lg md:text-2xl lg:text-3xl text-white font-display text-glow font-bold tracking-wide px-2 sm:px-4 py-1 sm:py-2 rounded-lg'>
             <TextType
               text={["Coming Soon!", "Prepare to Outsmart", "Stay Wired!"]}
               typingSpeed={75}
@@ -136,62 +136,62 @@ const HeroSection = () => {
         </div>
 
         {/* Tagline */}
-        <div className="mt-20 md:mt-32 max-w-xl">
-          <p className="font-body text-sm md:text-base tracking-[0.3em] uppercase text-muted-foreground mb-4">
+        <div className="mt-16 sm:mt-20 md:mt-32 max-w-xl">
+          <p className="font-body text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase text-muted-foreground mb-3 md:mb-4">
             Electrical Engineers' Society Presents
           </p>
-          <h2 className="font-display text-xl md:text-2xl lg:text-3xl text-foreground tracking-wide mb-6">
+          <h2 className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-foreground tracking-wide mb-4 md:mb-6">
             WHERE INNOVATION<br />
             MEETS <span className="text-primary">EXCELLENCE</span>
           </h2>
-          <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed">
+          <p className="font-body text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed">
             The technical festival of the Electrical Engineering Department at IIEST Shibpur,
             bringing together students, industry leaders, and researchers to showcase technical skills and innovations.
           </p>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4 mt-12">
+        <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-12">
           <a
             href="#events"
-            className="group px-8 py-4 bg-primary text-primary-foreground font-display text-sm tracking-widest uppercase hover:bg-primary/90 transition-all duration-300 box-glow hover:box-glow-strong"
+            className="group px-6 sm:px-8 py-3 sm:py-4 bg-primary text-primary-foreground font-display text-xs sm:text-sm tracking-widest uppercase hover:bg-primary/90 transition-all duration-300 box-glow hover:box-glow-strong"
           >
             EXPLORE EVENTS
             <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </a>
           <a
             href="#about"
-            className="px-8 py-4 border border-border text-foreground font-display text-sm tracking-widest uppercase hover:border-primary hover:text-primary transition-all duration-300"
+            className="px-6 sm:px-8 py-3 sm:py-4 border border-border text-foreground font-display text-xs sm:text-sm tracking-widest uppercase hover:border-primary hover:text-primary transition-all duration-300"
           >
             LEARN MORE
           </a>
         </div>
 
         {/* Stats Row */}
-        <div className="flex flex-wrap gap-8 md:gap-16 mt-16 md:mt-24">
+        <div className="flex flex-wrap gap-6 sm:gap-8 md:gap-16 mt-12 sm:mt-16 md:mt-24">
           <div>
-            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-glow">4</div>
-            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Edition</div>
+            <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-glow">4</div>
+            <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Edition</div>
           </div>
           <div>
-            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">9+</div>
-            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Events</div>
+            <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">9+</div>
+            <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Events</div>
           </div>
           <div>
-            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">1856</div>
-            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Est.</div>
+            <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">1856</div>
+            <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Est.</div>
           </div>
           <div>
-            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">INI</div>
-            <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">Status</div>
+            <div className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">INI</div>
+            <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Status</div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float z-20">
+      <div className="hidden sm:flex absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 animate-float z-20">
         <div className="flex flex-col items-center gap-2">
-          <span className="font-body text-xs tracking-widest text-muted-foreground uppercase">Scroll</span>
+          <span className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
         </div>
       </div>
