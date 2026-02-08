@@ -1,5 +1,5 @@
 import { useState, memo, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Lightbulb } from 'lucide-react';
 import EventCard from '@/components/EventCard';
 import EventDetailModal from '@/components/EventDetailModal';
@@ -8,6 +8,7 @@ import { BackgroundBeams } from '@/components/ui/background-beams';
 import { events, categories, Event } from '@/lib/eventsData';
 
 const Events = memo(() => {
+  const navigate = useNavigate();
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
   
@@ -44,13 +45,13 @@ const Events = memo(() => {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border relative">
         <div className="container mx-auto px-4 md:px-6 py-4">
-          <Link
-            to="/"
+          <button
+            onClick={() => window.history.length > 1 ? navigate(-1) : navigate('/')}
             className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Home
-          </Link>
+          </button>
         </div>
       </header>
 
