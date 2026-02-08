@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Mail, Phone, Users, Target, Award, TrendingUp, Globe } from 'lucide-react';
 import PastSponsers from '@/components/PastSponsers';
 import Footer from '@/components/Footer';
+import CircularText from '@/components/ui/animatedComponents/circularText';
 
 const sponsorshipTiers = [
   { tier: 'Title Sponsor', amount: '₹200000/-' },
@@ -61,7 +62,7 @@ const Sponsor = () => {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 md:px-6 py-4">
-          <Link 
+          <Link
             to="/"
             className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
           >
@@ -73,6 +74,12 @@ const Sponsor = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+        {/* <CircularText
+          text="SPHURAN 4.0 * EES * SPONSORSHIP * "
+          onHover="speedUp"
+          spinDuration={20}
+          className="custom-class"
+        /> */}
         {/* Page Header */}
         <div className="mb-16">
           <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
@@ -96,7 +103,7 @@ const Sponsor = () => {
             {benefits.map((benefit) => {
               const Icon = benefit.icon;
               return (
-                <div 
+                <div
                   key={benefit.number}
                   className="relative p-8 bg-card border border-border rounded-lg hover:border-primary/50 transition-all group"
                 >
@@ -144,7 +151,7 @@ const Sponsor = () => {
                 </thead>
                 <tbody>
                   {sponsorshipTiers.map((tier, index) => (
-                    <tr 
+                    <tr
                       key={index}
                       className="border-b border-border hover:bg-primary/5 transition-colors"
                     >
