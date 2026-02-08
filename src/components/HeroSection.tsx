@@ -189,12 +189,12 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="hidden sm:flex absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 animate-float z-20">
+      {/* <div className="hidden sm:flex absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 animate-float z-20">
         <div className="flex flex-col items-center gap-2">
           <span className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
         </div>
-      </div>
+      </div> */}
 
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
