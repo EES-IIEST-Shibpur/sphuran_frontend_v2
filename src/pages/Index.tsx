@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import StarField from '@/components/StarField';
 import Navbar from '@/components/Navbar';
+import sphuranLogo from '@/assets/sphuran-logo.jpg';
 
 // Lazy load heavy components for better performance
 const HeroSection = lazy(() => import('@/components/HeroSection'));
@@ -26,23 +27,23 @@ const Index = () => {
           <HeroSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <AboutSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <EventsSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <ScheduleSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent" /></div>}>
+        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <ContactSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent" /></div>}>
+        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <PastSponsers />
         </Suspense>
       </main>
