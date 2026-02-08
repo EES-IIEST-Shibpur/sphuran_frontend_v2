@@ -1,8 +1,7 @@
 import { memo, useCallback } from 'react';
 import { getYear } from 'date-fns';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
-const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
+import { IMAGES } from '@/lib/assets';
 
 const Footer = memo(() => {
   const location = useLocation();
@@ -35,7 +34,7 @@ const Footer = memo(() => {
           <div className="w-full lg:flex-1">
             <div className="flex justify-center items-center gap-3 md:gap-4 mb-4 md:mb-6">
               <img
-                src={sphuranLogo}
+                src={IMAGES.logos.sphuran}
                 alt="Sphuran Logo"
                 className="w-14 h-14 md:w-16 md:h-16 object-contain rounded-xl"
               />

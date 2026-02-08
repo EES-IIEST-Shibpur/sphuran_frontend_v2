@@ -3,8 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import ChipsTab from './ui/tabs/ChipsTab';
 import { StaggeredMenu } from './ui/tabs/StaggeredMenu';
 import { SocialLinks } from '@/lib/utils';
-
-const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
+import { IMAGES } from '@/lib/assets';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -112,7 +111,7 @@ const Navbar = memo(() => {
           socialItems={socialLinks}
           displaySocials={true}
           displayItemNumbering={true}
-          logoUrl={sphuranLogo}
+          logoUrl={IMAGES.logos.sphuran}
           menuButtonColor={scrolled ? '#ffffff' : '#ffffff'}
           openMenuButtonColor="#000000"
           accentColor="#6366f1"
@@ -140,7 +139,7 @@ const Navbar = memo(() => {
               }}
             >
               <img 
-                src={sphuranLogo} 
+                src={IMAGES.logos.sphuran} 
                 alt="Sphuran Logo" 
                 className="h-10 w-10 md:h-12 md:w-12 object-contain rounded-lg "
               />

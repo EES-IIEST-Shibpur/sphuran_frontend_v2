@@ -1,7 +1,5 @@
 import { memo } from 'react';
-
-const eesLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536100/ees-logo_vjjwxn.png";
-const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
+import { IMAGES } from '@/lib/assets';
 
 const AboutSection = memo(() => {
   return (
@@ -44,7 +42,7 @@ const AboutSection = memo(() => {
             {/* Logo & Badge */}
             <div className="flex items-center gap-6 pt-8 border-t border-border">
               <img 
-                src={sphuranLogo} 
+                src={IMAGES.logos.sphuran} 
                 alt="Sphuran Logo" 
                 className="w-20 h-20 object-contain rounded-xl"
               />
@@ -60,7 +58,7 @@ const AboutSection = memo(() => {
             {/* EES Info */}
             <div className="flex items-start gap-4 p-6 bg-card border border-border rounded-lg">
               <img 
-                src={eesLogo} 
+                src={IMAGES.logos.ees} 
                 alt="Electrical Engineering" 
                 className="w-14 h-14 object-contain"
               />

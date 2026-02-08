@@ -1,8 +1,7 @@
 import { lazy, Suspense } from 'react';
 import StarField from '@/components/StarField';
 import Navbar from '@/components/Navbar';
-
-const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
+import { IMAGES } from '@/lib/assets';
 
 // Lazy load heavy components for better performance
 const HeroSection = lazy(() => import('@/components/HeroSection'));
@@ -28,23 +27,23 @@ const Index = () => {
           <HeroSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <AboutSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <EventsPreview />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <ScheduleSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <ContactSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={sphuranLogo} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <PastSponsers />
         </Suspense>
       </main>

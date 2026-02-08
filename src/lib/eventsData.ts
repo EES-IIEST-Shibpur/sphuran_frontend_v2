@@ -1,4 +1,5 @@
 import { Brain, Gamepad2, Lightbulb, Code, BookOpen, Users, Heart, Music, Zap } from 'lucide-react';
+import { IMAGES } from './assets';
 
 export interface Event {
     title: string;
@@ -144,7 +145,7 @@ export const events: Event[] = [
         ],
         eligibility: 'EES Alumni and current students',
         contact: 'sphuran.ees@gmail.com',
-        image: 'https://res.cloudinary.com/dwr8472qb/image/upload/v1770546216/undraw_meeting_dunc_dctfbx.svg',
+        image: IMAGES.events.alumniMeeting,
         isSpecialEvent: true,
     },
     {
@@ -164,7 +165,7 @@ export const events: Event[] = [
         ],
         eligibility: 'Open to all volunteers',
         contact: 'sphuran.ees@gmail.com',
-        image: 'https://res.cloudinary.com/dwr8472qb/image/upload/v1770546806/sphuran-x-icche_gkfhoq.jpg',
+        image: IMAGES.events.icche,
         isSpecialEvent: true,
     },
     {
@@ -184,7 +185,7 @@ export const events: Event[] = [
         ],
         eligibility: 'Selected performers',
         contact: 'sphuran.ees@gmail.com',
-        image: 'https://res.cloudinary.com/dwr8472qb/image/upload/v1770546105/sphuran-x-rxb_vhuylt.jpg',
+        image: IMAGES.events.rxb,
         isSpecialEvent: true,
     },
 ];
