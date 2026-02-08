@@ -188,7 +188,7 @@ const Sponsor = () => {
             Interested in Sponsoring?
           </h2>
           <p className="font-body text-muted-foreground mb-8 max-w-2xl">
-            Join us in making Sphuran 4.0 a memorable experience. For detailed sponsorship packages and customized opportunities, reach out to our sponsorship team.
+            Join us in making SPHURAN 4.0 a memorable experience. For detailed sponsorship packages and customized opportunities, reach out to our sponsorship team.
           </p>
           <div className="flex flex-wrap gap-4">
             <a
