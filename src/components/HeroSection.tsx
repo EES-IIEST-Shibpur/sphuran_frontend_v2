@@ -6,7 +6,7 @@ const HeroSection = memo(() => {
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-background">
       {/* Hero Background Image */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      <div className="absolute inset-0 w-full h-full z-0 animate-load-fade-in">
         <img
           src="https://res.cloudinary.com/dwr8472qb/image/upload/v1770570220/13930a9cc351a2de5d089e2a09c77a51_mult1j.jpg"
           alt="Sphuran Hero"
@@ -15,7 +15,13 @@ const HeroSection = memo(() => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
       </div>
 
-      <div className="absolute top-48 md:top-56 left-1/3 md:left-1/2 -translate-x-1/2 z-20 animate-float" style={{ animationDelay: '0.5s' }}>
+      <div className="absolute top-32 left-8 md:left-16 lg:left-32 z-20 animate-load-slide-left" style={{ animationDelay: '0.3s', opacity: 0 }}>
+        <div className="px-4 py-2 bg-card/90 backdrop-blur border border-border rounded-full font-body text-xs md:text-sm tracking-widest text-foreground font-semibold">
+          2026
+        </div>
+      </div>
+
+      <div className="absolute top-48 md:top-56 left-1/3 md:left-1/2 -translate-x-1/2 z-20 animate-load-slide-down" style={{ animationDelay: '0.2s', opacity: 0 }}>
         <div className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-display text-xs md:text-sm tracking-wider font-bold">
           4TH EDITION
         </div>
@@ -24,7 +30,7 @@ const HeroSection = memo(() => {
       {/* Main Content */}
       <div className="container mx-auto px-4 relative z-10 overflow-hidden">
         {/* Massive Typography - SPHURAN */}
-        <div className="relative mt-2 sm:mt-8 md:mt-16 lg:mt-24 text-center w-full">
+        <div className="relative mt-2 sm:mt-8 md:mt-16 lg:mt-24 text-center w-full animate-load-fade-scale" style={{ animationDelay: '0.4s', opacity: 0 }}>
           <h1 className="font-display text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[10rem] xl:text-[13rem] font-black tracking-tighter text-foreground leading-none select-none drop-shadow-2xl max-w-full">
             <ShinyText
               text="SPHURAN"
@@ -41,13 +47,13 @@ const HeroSection = memo(() => {
           </h1>
 
           {/* 4.0 overlapping */}
-          <div className="absolute -bottom-8 sm:-bottom-16 md:-bottom-24 lg:-bottom-32 right-4 sm:right-12 md:right-20 lg:right-32">
+          <div className="absolute -bottom-8 sm:-bottom-16 md:-bottom-24 lg:-bottom-32 right-4 sm:right-12 md:right-20 lg:right-32 animate-load-slide-up" style={{ animationDelay: '0.6s', opacity: 0 }}>
             <span className="font-display text-[3rem] sm:text-[5rem] md:text-[8rem] lg:text-[12rem] xl:text-[15rem] font-black text-primary text-glow-strong leading-none select-none opacity-90">
               4.0
             </span>
           </div>
           {/* Coming Soon */}
-          <div className='absolute -bottom-8 sm:-bottom-20 md:-bottom-32 lg:-bottom-40 left-4 sm:left-8 md:left-12 text-xs sm:text-base md:text-xl lg:text-2xl text-white font-display text-glow font-bold tracking-wide px-2 sm:px-4 py-1 sm:py-2 rounded-lg'>
+          <div className='absolute -bottom-8 sm:-bottom-20 md:-bottom-32 lg:-bottom-40 left-4 sm:left-8 md:left-12 text-xs sm:text-base md:text-xl lg:text-2xl text-white font-display text-glow font-bold tracking-wide px-2 sm:px-4 py-1 sm:py-2 rounded-lg animate-load-slide-left' style={{ animationDelay: '0.8s', opacity: 0 }}>
             <TextType
               text={["Coming Soon!", "Prepare to Outsmart", "Stay Wired!"]}
               typingSpeed={75}
@@ -62,7 +68,7 @@ const HeroSection = memo(() => {
         </div>
 
         {/* Tagline */}
-        <div className="mt-20 sm:mt-28 md:mt-40 lg:mt-52 max-w-2xl mx-auto text-center">
+        <div className="mt-20 sm:mt-28 md:mt-40 lg:mt-52 max-w-2xl mx-auto text-center animate-load-fade-in" style={{ animationDelay: '1s', opacity: 0 }}>
           <p className="font-body text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.3em] uppercase text-muted-foreground mb-3 md:mb-4">
             Electrical Engineers' Society Presents
           </p>
@@ -77,7 +83,7 @@ const HeroSection = memo(() => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-12">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 sm:mt-12 animate-load-slide-up" style={{ animationDelay: '1.2s', opacity: 0 }}>
           <a
             href="#events"
             className="group px-6 sm:px-8 py-3 sm:py-4 bg-primary text-primary-foreground font-display text-xs sm:text-sm tracking-widest uppercase hover:bg-primary/90 transition-all duration-300 box-glow hover:box-glow-strong"
@@ -94,7 +100,7 @@ const HeroSection = memo(() => {
         </div>
 
         {/* Stats Row */}
-        <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 mt-10 sm:mt-12 md:mt-16">
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 mt-10 sm:mt-12 md:mt-16 animate-load-fade-in" style={{ animationDelay: '1.4s', opacity: 0 }}>
           <div className="text-center">
             <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary text-glow">4</div>
             <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Edition</div>
