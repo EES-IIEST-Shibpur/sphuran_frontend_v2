@@ -4,9 +4,12 @@ import { ArrowRight, Lightbulb } from 'lucide-react';
 import EventCard from './EventCard';
 import EventDetailModal from './EventDetailModal';
 import { events, Event } from '@/lib/eventsData';
+import { useInView } from '@/hooks/use-in-view';
 
 const EventsPreview = memo(() => {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const headerRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const flagshipRef = useInView({ threshold: 0.2, triggerOnce: false });
   
   // Separate competitive events from special events
   const competitiveEvents = events.filter(e => !e.isSpecialEvent);
@@ -32,7 +35,14 @@ const EventsPreview = memo(() => {
     <section id="events" className="relative py-24 md:py-32 overflow-hidden bg-card/30">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Section Header - Bold Editorial */}
-        <div className="mb-16">
+        <div 
+          ref={headerRef.ref}
+          className={`mb-16 transition-all duration-700 ${
+            headerRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
             <div>
               <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
@@ -59,7 +69,14 @@ const EventsPreview = memo(() => {
         </div>
 
         {/* Featured Event Highlight */}
-        <div className="mb-12 p-8 md:p-12 border border-primary/30 bg-primary/5 rounded-lg relative overflow-hidden">
+        <div 
+          ref={flagshipRef.ref}
+          className={`mb-12 p-8 md:p-12 border border-primary/30 bg-primary/5 rounded-lg relative overflow-hidden transition-all duration-700 delay-200 ${
+            flagshipRef.isInView 
+              ? 'opacity-100 scale-100' 
+              : 'opacity-0 scale-95'
+          }`}
+        >
           <div className="absolute top-4 right-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-display tracking-wider rounded-full">
             FLAGSHIP
           </div>

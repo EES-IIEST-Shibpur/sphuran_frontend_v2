@@ -2,6 +2,7 @@ import { Mail, MapPin, Phone, ExternalLink, Share2 } from 'lucide-react';
 import { FaInstagram, FaLinkedin, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { useState, FormEvent, memo, useCallback } from 'react';
 import axios from 'axios';
+import { useInView } from '@/hooks/use-in-view';
 
 const contactCategories = {
   secretary: [
@@ -27,6 +28,10 @@ const ContactSection = memo(() => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [showAllCoordinators, setShowAllCoordinators] = useState(false);
+  
+  const headerRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const formRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const infoRef = useInView({ threshold: 0.2, triggerOnce: false });
 
   const handleSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,7 +75,14 @@ const ContactSection = memo(() => {
     <section id="contact" className="relative py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
-        <div className="mb-16">
+        <div 
+          ref={headerRef.ref}
+          className={`mb-16 transition-all duration-700 ${
+            headerRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
             Get In Touch
           </span>
@@ -83,7 +95,14 @@ const ContactSection = memo(() => {
         {/* Contact Grid */}
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
-          <div className="space-y-6">
+          <div 
+            ref={infoRef.ref}
+            className={`space-y-6 transition-all duration-700 delay-200 ${
+              infoRef.isInView 
+                ? 'opacity-100 translate-x-0' 
+                : 'opacity-0 -translate-x-10'
+            }`}
+          >
             {/* Contact Cards Row */}
             <div className="grid sm:grid-cols-2 gap-4">
               {/* Email */}
@@ -276,7 +295,14 @@ const ContactSection = memo(() => {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div>
+          <div 
+            ref={formRef.ref}
+            className={`transition-all duration-700 delay-400 ${
+              formRef.isInView 
+                ? 'opacity-100 translate-x-0' 
+                : 'opacity-0 translate-x-10'
+            }`}
+          >
             <h3 className="font-display text-sm tracking-wider uppercase text-foreground mb-6">Send a Message</h3>
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="grid sm:grid-cols-2 gap-5">

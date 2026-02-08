@@ -1,7 +1,15 @@
 import { memo } from 'react';
 import { IMAGES } from '@/lib/assets';
+import { useInView } from '@/hooks/use-in-view';
 
 const AboutSection = memo(() => {
+  const headerRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const leftColRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const rightColRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const iiestRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const sphuranLogoRef = useInView({ threshold: 0.3, triggerOnce: false });
+  const eesLogoRef = useInView({ threshold: 0.3, triggerOnce: false });
+
   return (
     <section id="about" className="relative py-24 md:py-32 overflow-hidden">
       {/* Decorative vertical text */}
@@ -13,7 +21,14 @@ const AboutSection = memo(() => {
 
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header - Bold Editorial Style */}
-        <div className="relative mb-20">
+        <div 
+          ref={headerRef.ref}
+          className={`relative mb-20 transition-all duration-700 ${
+            headerRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
             About The Fest
           </span>
@@ -31,7 +46,14 @@ const AboutSection = memo(() => {
         {/* Content Grid - Magazine Layout */}
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           {/* Left Column - Large Quote */}
-          <div className="lg:col-span-5 space-y-8">
+          <div 
+            ref={leftColRef.ref}
+            className={`lg:col-span-5 space-y-8 transition-all duration-700 delay-200 ${
+              leftColRef.isInView 
+                ? 'opacity-100 translate-x-0' 
+                : 'opacity-0 -translate-x-10'
+            }`}
+          >
             <div className="relative">
               <span className="absolute -left-4 -top-4 text-8xl font-display text-primary/20">"</span>
               <p className="font-display text-2xl md:text-3xl text-foreground leading-tight pl-8">
@@ -40,7 +62,14 @@ const AboutSection = memo(() => {
             </div>
             
             {/* Logo & Badge */}
-            <div className="flex items-center gap-6 pt-8 border-t border-border">
+            <div 
+              ref={sphuranLogoRef.ref}
+              className={`flex items-center gap-6 pt-8 border-t border-border transition-all duration-700 delay-300 ${
+                sphuranLogoRef.isInView 
+                  ? 'opacity-100 scale-100' 
+                  : 'opacity-0 scale-75'
+              }`}
+            >
               <img 
                 src={IMAGES.logos.sphuran} 
                 alt="Sphuran Logo" 
@@ -56,7 +85,14 @@ const AboutSection = memo(() => {
             </div>
 
             {/* EES Info */}
-            <div className="flex items-start gap-4 p-6 bg-card border border-border rounded-lg">
+            <div 
+              ref={eesLogoRef.ref}
+              className={`flex items-start gap-4 p-6 bg-card border border-border rounded-lg transition-all duration-700 delay-500 ${
+                eesLogoRef.isInView 
+                  ? 'opacity-100 scale-100' 
+                  : 'opacity-0 scale-75'
+              }`}
+            >
               <img 
                 src={IMAGES.logos.ees} 
                 alt="Electrical Engineering" 
@@ -75,7 +111,14 @@ const AboutSection = memo(() => {
           </div>
 
           {/* Right Column - Text Content */}
-          <div className="lg:col-span-7 space-y-8">
+          <div 
+            ref={rightColRef.ref}
+            className={`lg:col-span-7 space-y-8 transition-all duration-700 delay-400 ${
+              rightColRef.isInView 
+                ? 'opacity-100 translate-x-0' 
+                : 'opacity-0 translate-x-10'
+            }`}
+          >
             {/* About Sphuran */}
             <div>
               <h3 className="font-display text-xl font-bold text-primary mb-4">About SPHURAN</h3>
@@ -127,7 +170,14 @@ const AboutSection = memo(() => {
         </div>
 
         {/* About IIEST Section */}
-        <div className="mt-20 p-8 md:p-12 border border-border bg-card/30 rounded-lg">
+        <div 
+          ref={iiestRef.ref}
+          className={`mt-20 p-8 md:p-12 border border-border bg-card/30 rounded-lg transition-all duration-700 ${
+            iiestRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="flex items-center gap-4 mb-6">
             <span className="px-4 py-2 bg-primary/10 text-primary font-display text-sm tracking-wider rounded-full">
               ESTD 1856
