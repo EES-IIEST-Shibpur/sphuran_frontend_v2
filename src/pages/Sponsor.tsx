@@ -3,6 +3,7 @@ import { ArrowLeft, Mail, Phone, Users, Target, Award, TrendingUp, Globe } from 
 import PastSponsers from '@/components/PastSponsers';
 import Footer from '@/components/Footer';
 import CircularText from '@/components/ui/animatedComponents/circularText';
+import { BackgroundBeams } from '@/components/ui/background-beams';
 
 const sponsorshipTiers = [
   { tier: 'Title Sponsor', amount: '₹200000/-' },
@@ -58,9 +59,12 @@ const benefits = [
 
 const Sponsor = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Background Beams */}
+      <BackgroundBeams className="absolute inset-0 z-0" />
+      
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border relative">
         <div className="container mx-auto px-4 md:px-6 py-4">
           <Link
             to="/"
@@ -73,7 +77,7 @@ const Sponsor = () => {
       </header>
 
       {/* Content */}
-      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 relative z-10">
         {/* <CircularText
           text="SPHURAN 4.0 * EES * SPONSORSHIP * "
           onHover="speedUp"
