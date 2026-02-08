@@ -28,10 +28,10 @@ const Footer = () => {
     <footer className="relative py-8 md:py-12 border-t border-border bg-background">
       <div className="container mx-auto px-4 md:px-6">
         {/* Main Footer Grid */}
-        <div className="flex justify-center items-center gap-20 space-y-12 mb-16">
+        <div className="flex flex-col lg:flex-row justify-center items-start lg:items-center gap-8 lg:gap-20 mb-12 md:mb-16">
           {/* Brand Column - Full Width */}
-          <div className='flex-1'>
-            <div className="flex justify-center items-center gap-4 mb-6">
+          <div className="w-full lg:flex-1">
+            <div className="flex justify-center items-center gap-3 md:gap-4 mb-4 md:mb-6">
               <img
                 src={sphuranLogo}
                 alt="Sphuran Logo"
@@ -46,17 +46,17 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <p className="font-body text-center text-sm text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="font-body text-center text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               The technical festival of the Electrical Engineering Department at IIEST Shibpur,
               bringing together students, industry leaders, and researchers to showcase technical skills and innovations.
             </p>
           </div>
 
           {/* Three Column Grid - Quick Links, Contact, Social Media */}
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="w-full lg:w-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             {/* Quick Links */}
-            <div>
-              <h4 className="font-display text-sm tracking-widest uppercase text-foreground mb-6">Quick Links</h4>
+            <div className="text-center sm:text-left">
+              <h4 className="font-display text-sm tracking-widest uppercase text-foreground mb-4 md:mb-6">Quick Links</h4>
               <div className="space-y-3">
                 {['Home', 'About', 'Events', 'Schedule', 'Contact'].map((link) => (
                   <a
@@ -84,8 +84,8 @@ const Footer = () => {
             </div>
 
             {/* Contact */}
-            <div>
-              <h4 className="font-display text-sm tracking-widest uppercase text-foreground mb-6">Contact</h4>
+            <div className="text-center sm:text-left">
+              <h4 className="font-display text-sm tracking-widest uppercase text-foreground mb-4 md:mb-6">Contact</h4>
               <div className="space-y-3 font-body text-sm text-muted-foreground">
                 <p>Department of Electrical Engineering</p>
                 <p>IIEST Shibpur, Howrah - 711103</p>
@@ -100,9 +100,9 @@ const Footer = () => {
             </div>
 
             {/* Social Media */}
-            <div>
-              <h4 className="font-display text-sm tracking-widest uppercase text-foreground mb-6">Social Media</h4>
-              <div className="space-y-3">
+            <div className="text-center sm:text-left sm:col-span-2 lg:col-span-1">
+              <h4 className="font-display text-sm tracking-widest uppercase text-foreground mb-4 md:mb-6">Social Media</h4>
+              <div className="space-y-3 flex flex-col items-center sm:items-start">
                 <a
                   href="https://www.instagram.com/_sphuran.ees"
                   target="_blank"
@@ -141,8 +141,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border text-center">
-          <div className="font-body text-xs text-muted-foreground">
+        <div className="pt-6 md:pt-8 border-t border-border text-center">
+          <div className="font-body text-xs text-muted-foreground leading-relaxed">
             &copy; {getYear(new Date())} <s></s>
             <a
               href="https://www.eesiiests.org"
@@ -152,7 +152,8 @@ const Footer = () => {
             >
               Electrical Engineers' Society
             </a>
-            {' | '}
+            <span className="hidden sm:inline">{' | '}</span>
+            <br className="sm:hidden" />
             Designed by <span className="text-primary">EES Web Team</span>
           </div>
         </div>
