@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import sphuranLogo from '@/assets/sphuran-logo.jpg';
 import Hyperspeed from './ui/animatedComponents/hyperSpeed';
 import TextType from './ui/animatedComponents/textType';
+import ShinyText from './ui/animatedComponents/shinyText';
 
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -99,9 +100,18 @@ const HeroSection = () => {
         {/* Massive Typography - SPHURAN */}
         <div className="relative mt-32 md:mt-24">
           <h1 className="font-display text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[12rem] xl:text-[16rem] font-black tracking-tighter text-foreground leading-none select-none">
-            SPHU
-            <span className="text-primary text-glow-strong">R</span>
-            AN
+            <ShinyText
+              text="SPHURAN"
+              speed={2}
+              delay={0}
+              color="#b5b5b5"
+              shineColor="#ffffff"
+              spread={120}
+              direction="left"
+              yoyo={false}
+              pauseOnHover={false}
+              disabled={false}
+            />
           </h1>
 
           {/* 4.0 overlapping */}
