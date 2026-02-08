@@ -1,6 +1,7 @@
-import sphuranLogo from '@/assets/sphuran-logo.jpg';
 import { getYear } from 'date-fns';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
 
 const Footer = () => {
   const location = useLocation();

@@ -4,7 +4,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import sphuranLogo from '@/assets/sphuran-logo.jpg';
+
+const sphuranLogo = "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536102/sphuran-logo_a6mzzi.png";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
