@@ -1,37 +1,77 @@
 import LogoLoop from './ui/animatedComponents/logoLoop';
 
-// Import sponsor logos
-import ZomatoLogo from '@/assets/Sponsors/Zomato-Logo.png';
-import WowMomoLogo from '@/assets/Sponsors/Wow_Momo_Logo.png';
-import TataPowerLogo from '@/assets/Sponsors/Tata_Power_logo.png';
-import TCSLogo from '@/assets/Sponsors/Tata_Consultancy_Services_old_logo.png';
-import PidiliteLogo from '@/assets/Sponsors/Pidilite_logo.png';
-import NikonLogo from '@/assets/Sponsors/Nikon_Logo.svg.png';
-import EdugraphLogo from '@/assets/Sponsors/Edugraph_logo.png';
-import CESCLogo from '@/assets/Sponsors/CESC_Logo.png';
-import BengalBeveragesLogo from '@/assets/Sponsors/Bengal_Beverages.png';
-import GateforumLogo from '@/assets/Sponsors/Gateforum_Logo.png';
-import GlocalHealthcareLogo from '@/assets/Sponsors/Glocal_Healthcare_Logo.png';
-import MadeEasyLogo from '@/assets/Sponsors/MadeEasy_Logo.png';
-import ReacroLogo from '@/assets/Sponsors/Reacro_Logo.png';
-import VikramSolarLogo from '@/assets/Sponsors/Vikram_Solar_Logo.png';
-
-
+// Sponsor logos from Cloudinary
 const sponsorLogos = [
-  { src: ZomatoLogo, alt: "Zomato", href: "#" },
-  { src: WowMomoLogo, alt: "Wow Momo", href: "#" },
-  { src: TataPowerLogo, alt: "Tata Power", href: "#" },
-  { src: TCSLogo, alt: "Tata Consultancy Services", href: "#" },
-  { src: PidiliteLogo, alt: "Pidilite", href: "#" },
-  { src: NikonLogo, alt: "Nikon", href: "#" },
-  { src: EdugraphLogo, alt: "Edugraph", href: "#" },
-  { src: CESCLogo, alt: "CESC", href: "#" },
-  { src: BengalBeveragesLogo, alt: "Bengal Beverages", href: "#" },
-  { src: GateforumLogo, alt: "Gateforum", href: "#" },
-  { src: GlocalHealthcareLogo, alt: "Glocal Healthcare", href: "#" },
-  { src: MadeEasyLogo, alt: "Made Easy", href: "#" },
-  { src: ReacroLogo, alt: "Reacro", href: "#" },
-  { src: VikramSolarLogo, alt: "Vikram Solar", href: "#" },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536010/Zomato-Logo_qcolki.png", 
+    alt: "Zomato", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536010/Wow_Momo_Logo_bt8zdk.png", 
+    alt: "Wow Momo", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536009/Vikram_Solar_Logo_rcbs4y.png", 
+    alt: "Vikram Solar", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536009/Tata_Power_logo_mnd5ud.png", 
+    alt: "Tata Power", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536008/Tata_Consultancy_Services_old_logo_qrbffk.png", 
+    alt: "Tata Consultancy Services", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536007/Reacro_Logo_zb1z1j.png", 
+    alt: "Reacro", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536007/Pidilite_logo_wsr0gf.png", 
+    alt: "Pidilite", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536007/Gateforum_Logo_qi6qug.png", 
+    alt: "Gateforum", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536007/Nikon_Logo.svg_wnndep.png", 
+    alt: "Nikon", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536006/Glocal_Healthcare_Logo_veqjqh.png", 
+    alt: "Glocal Healthcare", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536006/MadeEasy_Logo_fxttls.png", 
+    alt: "Made Easy", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536006/Edugraph_logo_su10en.png", 
+    alt: "Edugraph", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536006/CESC_Logo_ddmhsa.png", 
+    alt: "CESC", 
+    href: "#" 
+  },
+  { 
+    src: "https://res.cloudinary.com/dwr8472qb/image/upload/v1770536006/Bengal_Beverages_la4ir2.png", 
+    alt: "Bengal Beverages", 
+    href: "#" 
+  },
 ];
 
 const PastSponsers = () => {
