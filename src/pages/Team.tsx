@@ -89,7 +89,8 @@ const Team = () => {
   const heroRef = useInView({ threshold: 0.2, triggerOnce: true });
   const facultyRef = useInView({ threshold: 0.2, triggerOnce: true });
   const coordinatorsRef = useInView({ threshold: 0.2, triggerOnce: true });
-  const departmentsRef = useInView({ threshold: 0.2, triggerOnce: true });
+  const jointCoordinatorsRef = useInView({ threshold: 0.2, triggerOnce: true });
+  const departmentsRef = useInView({ threshold: 0.1, rootMargin: '200px', triggerOnce: true });
   
   return (
     <div className="min-h-screen bg-background relative">
@@ -185,7 +186,14 @@ const Team = () => {
         </div>
 
         {/* Joint Coordinators */}
-        <div className="mb-12">
+        <div 
+          ref={jointCoordinatorsRef.ref}
+          className={`mb-12 transition-all duration-700 ${
+            jointCoordinatorsRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6 border-b border-border pb-3">
             Joint Coordinators
           </h2>
