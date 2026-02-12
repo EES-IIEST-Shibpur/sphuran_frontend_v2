@@ -72,7 +72,7 @@ const AboutSection = memo(() => {
             >
               <img 
                 src={IMAGES.logos.sphuran} 
-                alt="Sphuran Logo" 
+                alt="SPHURAN Logo" 
                 className="w-20 h-20 object-contain rounded-xl"
               />
               <div>
@@ -119,7 +119,7 @@ const AboutSection = memo(() => {
                 : 'opacity-0 translate-x-10'
             }`}
           >
-            {/* About Sphuran */}
+            {/* About SPHURAN */}
             <div>
               <h3 className="font-display text-xl font-bold text-primary mb-4">About SPHURAN</h3>
               <p className="font-body text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -132,7 +132,7 @@ const AboutSection = memo(() => {
             
             <p className="font-body text-lg text-muted-foreground leading-relaxed">
               Known for intellectually stimulating events such as paper presentations, project exhibitions, 
-              robotics, and hackathons, Sphuran encourages creative and critical thinking while enabling 
+              robotics, and hackathons, SPHURAN encourages creative and critical thinking while enabling 
               students to network, build strong portfolios, and gain exposure to the latest trends and technologies.
             </p>
 

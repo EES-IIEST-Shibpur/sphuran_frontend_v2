@@ -155,7 +155,7 @@ export const events: Event[] = [
         isSpecialEvent: true,
     },
     {
-        title: 'Sphuran × ICCHE',
+        title: 'SPHURAN × ICCHE',
         description: 'The T-Shirt Distribution Drive is a social initiative aimed at promoting community welfare and collective responsibility. Through this drive, essential clothing is distributed to individuals, reinforcing the values of compassion, inclusivity, and social commitment while encouraging active participation in community service.',
         icon: Heart,
         category: 'Social Initiative',
@@ -175,7 +175,7 @@ export const events: Event[] = [
         isSpecialEvent: true,
     },
     {
-        title: 'Sphuran × RxB Flashmob',
+        title: 'SPHURAN × RxB Flashmob',
         description: 'A curated dance performance highlighting rhythm, expression, and artistic excellence. A celebration of movement and creativity.',
         icon: Music,
         category: 'Cultural',

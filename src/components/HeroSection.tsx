@@ -8,8 +8,8 @@ const HeroSection = memo(() => {
       {/* Hero Background Image */}
       <div className="absolute inset-0 w-full h-full z-0 animate-load-fade-in">
         <img
-          src="https://res.cloudinary.com/dwr8472qb/image/upload/v1770570220/13930a9cc351a2de5d089e2a09c77a51_mult1j.jpg"
-          alt="Sphuran Hero"
+          src="https://res.cloudinary.com/dwr8472qb/image/upload/v1770873377/Gemini_Generated_Image_1sxclh1sxclh1sxc_vuk7yj.png"
+          alt="SPHURAN Hero"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />

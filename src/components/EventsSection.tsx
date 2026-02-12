@@ -147,7 +147,7 @@ const events: Event[] = [
     contact: 'sphuran.ees@gmail.com',
   },
   {
-    title: 'Sphuran × ICCHE',
+    title: 'SPHURAN × ICCHE',
     description: 'The T-Shirt Distribution Drive is a social initiative aimed at promoting community welfare and collective responsibility. Essential clothing is distributed to individuals, reinforcing values of compassion, inclusivity, and social commitment.',
     icon: Heart,
     category: 'Social Initiative',
@@ -165,7 +165,7 @@ const events: Event[] = [
     contact: 'sphuran.ees@gmail.com',
   },
   {
-    title: 'Sphuran × RxB Flashmob',
+    title: 'SPHURAN × RxB Flashmob',
     description: 'A curated dance performance highlighting rhythm, expression, and artistic excellence. A celebration of movement and creativity.',
     icon: Music,
     category: 'Cultural',

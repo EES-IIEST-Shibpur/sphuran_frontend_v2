@@ -5,12 +5,20 @@ import EventCard from '@/components/EventCard';
 import EventDetailModal from '@/components/EventDetailModal';
 import Footer from '@/components/Footer';
 import { BackgroundBeams } from '@/components/ui/background-beams';
+import { AnimatedCard } from '@/components/AnimatedCard';
 import { events, categories, Event } from '@/lib/eventsData';
+import { useInView } from '@/hooks/use-in-view';
 
 const Events = memo(() => {
   const navigate = useNavigate();
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
+  
+  // Scroll animation refs
+  const headerRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const filtersRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const flagshipRef = useInView({ threshold: 0.2, triggerOnce: false });
+  const specialEventsRef = useInView({ threshold: 0.2, triggerOnce: false });
   
   // Separate competitive and special events
   const competitiveEvents = events.filter(e => !e.isSpecialEvent);
@@ -60,7 +68,14 @@ const Events = memo(() => {
         <section className="relative py-24 md:py-32 overflow-hidden">
           <div className="container mx-auto px-4 md:px-6">
             {/* Section Header - Bold Editorial */}
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+            <div 
+              ref={headerRef.ref}
+              className={`flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 transition-all duration-700 ${
+                headerRef.isInView 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-10'
+              }`}
+            >
               <div>
                 <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
                   What Awaits You
@@ -75,7 +90,14 @@ const Events = memo(() => {
               </div>
               
               {/* Category Filter - Pills */}
-              <div className="flex flex-wrap gap-2">
+              <div 
+                ref={filtersRef.ref}
+                className={`flex flex-wrap gap-2 transition-all duration-700 delay-200 ${
+                  filtersRef.isInView 
+                    ? 'opacity-100 translate-x-0' 
+                    : 'opacity-0 translate-x-10'
+                }`}
+              >
                 {categories.map((cat) => (
                   <button
                     key={cat}
@@ -94,7 +116,14 @@ const Events = memo(() => {
 
             {/* Featured Event Highlight */}
             {activeCategory === 'All' && (
-              <div className="mb-12 p-8 md:p-12 border border-primary/30 bg-primary/5 rounded-lg relative overflow-hidden">
+              <div 
+                ref={flagshipRef.ref}
+                className={`mb-12 p-8 md:p-12 border border-primary/30 bg-primary/5 rounded-lg relative overflow-hidden transition-all duration-700 delay-300 ${
+                  flagshipRef.isInView 
+                    ? 'opacity-100 scale-100' 
+                    : 'opacity-0 scale-95'
+                }`}
+              >
                 <div className="absolute top-4 right-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-display tracking-wider rounded-full">
                   FLAGSHIP
                 </div>
@@ -125,20 +154,23 @@ const Events = memo(() => {
             {/* Events Grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredEvents.map((event, index) => (
-                <div
-                  key={event.title}
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                  className="animate-slide-up"
-                >
+                <AnimatedCard key={event.title} delay={index * 100}>
                   <EventCard {...event} onClick={() => handleEventClick(event)} />
-                </div>
+                </AnimatedCard>
               ))}
             </div>
 
             {/* Special Events Section */}
             {activeCategory === 'All' && (
               <div className="mt-24">
-                <div className="mb-12">
+                <div 
+                  ref={specialEventsRef.ref}
+                  className={`mb-12 transition-all duration-700 ${
+                    specialEventsRef.isInView 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-10'
+                  }`}
+                >
                   <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
                     Beyond Competition
                   </span>
@@ -149,12 +181,12 @@ const Events = memo(() => {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                  {specialEvents.map((event) => (
-                    <div
-                      key={event.title}
-                      onClick={() => handleEventClick(event)}
-                      className="group cursor-pointer bg-card border border-border hover:border-primary transition-all duration-300 overflow-hidden"
-                    >
+                  {specialEvents.map((event, index) => (
+                    <AnimatedCard key={event.title} delay={index * 150}>
+                      <div
+                        onClick={() => handleEventClick(event)}
+                        className="group cursor-pointer bg-card border border-border hover:border-primary overflow-hidden transition-colors duration-300 h-full"
+                      >
                       {/* Image Section */}
                       {event.image ? (
                         <div className="relative h-64 overflow-hidden">
@@ -190,6 +222,7 @@ const Events = memo(() => {
                         </div>
                       </div>
                     </div>
+                    </AnimatedCard>
                   ))}
                 </div>
               </div>
