@@ -11,6 +11,8 @@ import { useInView } from '@/hooks/use-in-view';
 import { generateEventsListSchema } from '@/lib/structuredData';
 import { StructuredData } from '@/components/StructuredData';
 import { SEO } from '@/components/SEO';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 const Events = memo(() => {
   const navigate = useNavigate();
@@ -48,26 +50,6 @@ const Events = memo(() => {
     if (electroquip) setSelectedEvent(electroquip);
   }, []);
 
-  // Breadcrumb structured data
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://sphuran.eesiiests.org/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Events",
-        "item": "https://sphuran.eesiiests.org/events"
-      }
-    ]
-  };
-
   return (
     <div className="min-h-screen bg-background relative">
       {/* SEO Meta Tags */}
@@ -80,14 +62,13 @@ const Events = memo(() => {
       
       {/* Structured Data for SEO */}
       <StructuredData data={generateEventsListSchema(events)} />
-      <StructuredData data={breadcrumbSchema} />
       
       {/* Background Beams */}
       <BackgroundBeams className="absolute inset-0 z-0" />
       
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border relative">
-        <div className="container mx-auto px-4 md:px-6 py-4">
+        <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
           <button
             onClick={() => window.history.length > 1 ? navigate(-1) : navigate('/')}
             className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
@@ -95,6 +76,13 @@ const Events = memo(() => {
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </button>
+          
+          <Breadcrumbs 
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Events' }
+            ]}
+          />
         </div>
       </header>
 

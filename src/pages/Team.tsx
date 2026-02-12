@@ -4,6 +4,7 @@ import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 import { SEO } from '@/components/SEO';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 const teamData = {
   faculty: [
@@ -221,7 +222,7 @@ const Team = () => {
       
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border relative">
-        <div className="container mx-auto px-4 md:px-6 py-4">
+        <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
           <button 
             onClick={() => window.history.length > 1 ? navigate(-1) : navigate('/')}
             className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors"
@@ -229,6 +230,13 @@ const Team = () => {
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </button>
+          
+          <Breadcrumbs 
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Team' }
+            ]}
+          />
         </div>
       </header>
 
