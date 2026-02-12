@@ -10,6 +10,7 @@ import { events, categories, Event } from '@/lib/eventsData';
 import { useInView } from '@/hooks/use-in-view';
 import { generateEventsListSchema } from '@/lib/structuredData';
 import { StructuredData } from '@/components/StructuredData';
+import { SEO } from '@/components/SEO';
 
 const Events = memo(() => {
   const navigate = useNavigate();
@@ -69,6 +70,14 @@ const Events = memo(() => {
 
   return (
     <div className="min-h-screen bg-background relative">
+      {/* SEO Meta Tags */}
+      <SEO
+        title="Events"
+        description="Explore SPHURAN 4.0 events at IIEST Shibpur - Electroquip Quiz, Illumination Circuit Design, Cyberblame Coding, Adhyayan Case Study, and more competitive technical events. Register now for March 1-2, 2026."
+        keywords="SPHURAN events, Electroquip, Illumination circuit design, Cyberblame coding, technical competitions, IIEST Shibpur events, engineering competitions, quiz competition, coding contest, case study competition"
+        url="https://sphuran.eesiiests.org/events"
+      />
+      
       {/* Structured Data for SEO */}
       <StructuredData data={generateEventsListSchema(events)} />
       <StructuredData data={breadcrumbSchema} />

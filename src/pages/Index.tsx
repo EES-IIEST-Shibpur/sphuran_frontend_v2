@@ -3,6 +3,7 @@ import StarField from '@/components/StarField';
 import Navbar from '@/components/Navbar';
 import { IMAGES } from '@/lib/assets';
 import { StructuredData } from '@/components/StructuredData';
+import { SEO } from '@/components/SEO';
 
 // Lazy load heavy components for better performance
 const HeroSection = lazy(() => import('@/components/HeroSection'));
@@ -28,6 +29,9 @@ const Index = () => {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* SEO Meta Tags */}
+      <SEO />
+      
       {/* Structured Data for SEO */}
       <StructuredData data={breadcrumbSchema} />
       

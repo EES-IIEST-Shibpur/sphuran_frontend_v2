@@ -4,6 +4,7 @@ import PastSponsers from '@/components/PastSponsers';
 import Footer from '@/components/Footer';
 import CircularText from '@/components/ui/animatedComponents/circularText';
 import { BackgroundBeams } from '@/components/ui/background-beams';
+import { SEO } from '@/components/SEO';
 
 const sponsorshipTiers = [
   { tier: 'Title Sponsor', amount: '₹200000/-' },
@@ -62,6 +63,14 @@ const Sponsor = () => {
   
   return (
     <div className="min-h-screen bg-background relative">
+      {/* SEO Meta Tags */}
+      <SEO
+        title="Sponsor Us"
+        description="Partner with SPHURAN 4.0 at IIEST Shibpur. Explore sponsorship opportunities including Title Sponsor, Co-Sponsor, Media Partner, and more. Reach thousands of engineering students and enhance your brand visibility."
+        keywords="SPHURAN sponsorship, college fest sponsorship, IIEST Shibpur sponsors, technical fest sponsorship, title sponsor, media partner, event sponsorship opportunities"
+        url="https://sphuran.eesiiests.org/sponsor"
+      />
+      
       {/* Background Beams */}
       <BackgroundBeams className="absolute inset-0 z-0" />
       

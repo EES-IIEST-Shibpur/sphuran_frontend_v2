@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { BackgroundBeams } from '@/components/ui/background-beams';
+import { SEO } from '@/components/SEO';
 
 const teamData = {
   faculty: [
@@ -207,6 +208,14 @@ const Team = () => {
   
   return (
     <div className="min-h-screen bg-background relative">
+      {/* SEO Meta Tags */}
+      <SEO
+        title="Team"
+        description="Meet the dedicated team behind SPHURAN 4.0 at IIEST Shibpur. Faculty coordinators, main coordinators, and department heads organizing the technical festival."
+        keywords="SPHURAN team, EES IIEST team, SPHURAN organizers, student coordinators, faculty advisors, IIEST Shibpur team"
+        url="https://sphuran.eesiiests.org/team"
+      />
+      
       {/* Background Beams */}
       <BackgroundBeams className="absolute inset-0 z-0" />
       
