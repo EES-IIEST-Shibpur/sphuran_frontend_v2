@@ -8,6 +8,8 @@ import { BackgroundBeams } from '@/components/ui/background-beams';
 import { AnimatedCard } from '@/components/AnimatedCard';
 import { events, categories, Event } from '@/lib/eventsData';
 import { useInView } from '@/hooks/use-in-view';
+import { generateEventsListSchema } from '@/lib/structuredData';
+import { StructuredData } from '@/components/StructuredData';
 
 const Events = memo(() => {
   const navigate = useNavigate();
@@ -45,8 +47,32 @@ const Events = memo(() => {
     if (electroquip) setSelectedEvent(electroquip);
   }, []);
 
+  // Breadcrumb structured data
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://sphuran.eesiiests.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Events",
+        "item": "https://sphuran.eesiiests.org/events"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background relative">
+      {/* Structured Data for SEO */}
+      <StructuredData data={generateEventsListSchema(events)} />
+      <StructuredData data={breadcrumbSchema} />
+      
       {/* Background Beams */}
       <BackgroundBeams className="absolute inset-0 z-0" />
       

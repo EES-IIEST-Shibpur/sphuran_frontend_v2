@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import StarField from '@/components/StarField';
 import Navbar from '@/components/Navbar';
 import { IMAGES } from '@/lib/assets';
+import { StructuredData } from '@/components/StructuredData';
 
 // Lazy load heavy components for better performance
 const HeroSection = lazy(() => import('@/components/HeroSection'));
@@ -13,8 +14,23 @@ const PastSponsers = lazy(() => import('@/components/PastSponsers'));
 const Footer = lazy(() => import('@/components/Footer'));
 
 const Index = () => {
+  // BreadcrumbList structured data for homepage
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://sphuran.eesiiests.org/"
+    }]
+  };
+
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* Structured Data for SEO */}
+      <StructuredData data={breadcrumbSchema} />
+      
       {/* Animated Star Background */}
       <StarField />
 
