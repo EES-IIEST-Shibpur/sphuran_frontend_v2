@@ -94,6 +94,83 @@ export const IMAGES = {
   },
 };
 
+// Gallery Images
+export const GALLERY_IMAGES = [
+  {
+    src: `${CLOUDINARY_BASE}/v1770546806/sphuran-x-icche_gkfhoq.jpg`,
+    alt: 'SPHURAN x ICCHE Collaboration Event',
+    title: 'SPHURAN x ICCHE',
+    description: 'A memorable collaboration showcasing innovation and creativity'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770546105/sphuran-x-rxb_vhuylt.jpg`,
+    alt: 'SPHURAN x RXB Event Highlights',
+    title: 'SPHURAN x RXB',
+    description: 'Exciting moments from the RXB collaboration event'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770536102/sphuran-logo_a6mzzi.png`,
+    alt: 'SPHURAN 4.0 Official Logo',
+    title: 'SPHURAN 4.0 Branding',
+    description: 'The official logo representing our technical festival'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770536100/ees-logo_vjjwxn.png`,
+    alt: 'Electrical Engineering Society Logo',
+    title: 'EES IIEST Shibpur',
+    description: 'Electrical Engineering Society - The organizing body'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770546216/undraw_meeting_dunc_dctfbx.svg`,
+    alt: 'Alumni Meeting Illustration',
+    title: 'Alumni Meet',
+    description: 'Connecting generations of electrical engineers'
+  },
+  // Add more gallery images here
+  {
+    src: `${CLOUDINARY_BASE}/v1770546806/sphuran-x-icche_gkfhoq.jpg`,
+    alt: 'Technical Workshop Session',
+    title: 'Workshop Moments',
+    description: 'Hands-on learning and skill development sessions'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770546105/sphuran-x-rxb_vhuylt.jpg`,
+    alt: 'Competition Highlights',
+    title: 'Tech Competitions',
+    description: 'Students showcasing their technical prowess'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770546806/sphuran-x-icche_gkfhoq.jpg`,
+    alt: 'Opening Ceremony',
+    title: 'Grand Opening',
+    description: 'The spectacular inauguration of SPHURAN 4.0'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770546105/sphuran-x-rxb_vhuylt.jpg`,
+    alt: 'Cultural Evening',
+    title: 'Cultural Night',
+    description: 'An evening filled with music, dance, and entertainment'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770546806/sphuran-x-icche_gkfhoq.jpg`,
+    alt: 'Guest Lecture',
+    title: 'Guest Speakers',
+    description: 'Industry experts sharing their knowledge and experience'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770546105/sphuran-x-rxb_vhuylt.jpg`,
+    alt: 'Team Activities',
+    title: 'Team Building',
+    description: 'Collaborative activities fostering teamwork and creativity'
+  },
+  {
+    src: `${CLOUDINARY_BASE}/v1770546806/sphuran-x-icche_gkfhoq.jpg`,
+    alt: 'Prize Distribution Ceremony',
+    title: 'Award Ceremony',
+    description: 'Celebrating the achievements of talented participants'
+  },
+];
+
 // Helper to get all sponsors as an array
 export const getAllSponsors = () => {
   return Object.values(IMAGES.sponsors);

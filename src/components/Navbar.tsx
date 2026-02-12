@@ -1,9 +1,18 @@
 import { useState, useEffect, memo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, Home, Calendar, Users, Trophy, Image, Mail, Instagram, Facebook, Linkedin, MessageCircle } from 'lucide-react';
 import ChipsTab from './ui/tabs/ChipsTab';
 import { StaggeredMenu } from './ui/tabs/StaggeredMenu';
 import { SocialLinks } from '@/lib/utils';
 import { IMAGES } from '@/lib/assets';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+  DropdownMenuLabel,
+} from '@/components/ui/dropdown-menu';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -13,6 +22,30 @@ const navItems = [
   { label: 'Sponsors', href: '/sponsor' },
   { label: 'Team', href: '/team' },
 ];
+
+const menuItems = [
+  { label: 'Home', href: '/', icon: Home },
+  { label: 'Events', href: '/events', icon: Calendar },
+  { label: 'Gallery', href: '/gallery', icon: Image },
+  { label: 'Team', href: '/team', icon: Users },
+  { label: 'Sponsors', href: '/sponsor', icon: Trophy },
+  { label: 'Contact', href: '#contact', icon: Mail },
+];
+
+const getSocialIcon = (label: string) => {
+  switch (label) {
+    case 'Instagram':
+      return Instagram;
+    case 'Facebook':
+      return Facebook;
+    case 'LinkedIn':
+      return Linkedin;
+    case 'WhatsApp':
+      return MessageCircle;
+    default:
+      return Instagram;
+  }
+};
 
 const staggeredMenuItems = navItems.map((item) => ({
   label: item.label,
@@ -141,6 +174,11 @@ const Navbar = memo(() => {
 
   return (
     <>
+      {/* Mobile Header Background - Only visible on mobile when scrolled */}
+      <div className={`lg:hidden fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        scrolled ? 'bg-black/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
+      } h-20`} />
+      
       {/* Mobile StaggeredMenu - Only visible on mobile */}
       <div className="lg:hidden fixed inset-0 z-50 pointer-events-none">
         <StaggeredMenu
@@ -203,16 +241,53 @@ const Navbar = memo(() => {
 
             {/* CTA Button - Hidden on mobile */}
             <div className="hidden lg:flex items-center gap-4">
-              <a
-                href="/events"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('/events');
-                }}
-                className="px-5 py-2 bg-primary text-white font-display text-xs tracking-widest uppercase hover:bg-primary/90 transition-all"
-              >
-                Register
-              </a>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="flex items-center gap-2 px-5 py-2 bg-primary text-white font-display text-xs tracking-widest uppercase hover:bg-primary/90 transition-all rounded-sm">
+                    <Menu className="w-4 h-4" />
+                    MENU
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-background/95 backdrop-blur-md border-border">
+                  <DropdownMenuLabel className="font-display text-xs tracking-wider uppercase text-muted-foreground">
+                    Quick Links
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {menuItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <DropdownMenuItem
+                        key={item.label}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToSection(item.href);
+                        }}
+                        className="cursor-pointer hover:bg-primary/10 focus:bg-primary/50 hover:text-green-500 focus:text-foreground"
+                      >
+                        <Icon className="w-4 h-4 mr-3 text-primary" />
+                        <span className="font-medium">{item.label}</span>
+                      </DropdownMenuItem>
+                    );
+                  })}
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel className="font-display text-xs tracking-wider uppercase text-muted-foreground">
+                    Connect With Us
+                  </DropdownMenuLabel>
+                  {SocialLinks.map((social) => {
+                    const Icon = getSocialIcon(social.label);
+                    return (
+                      <DropdownMenuItem
+                        key={social.label}
+                        onClick={() => window.open(social.link, '_blank')}
+                        className="cursor-pointer hover:bg-primary/10 focus:bg-primary/50 hover:text-foreground focus:text-foreground"
+                      >
+                        <Icon className="w-4 h-4 mr-3 text-primary" />
+                        <span className="font-medium">{social.label}</span>
+                      </DropdownMenuItem>
+                    );
+                  })}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>
