@@ -164,10 +164,10 @@ const Navbar = memo(() => {
             {/* CTA Button - Hidden on mobile */}
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="#events"
+                href="/events"
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection('#events');
+                  scrollToSection('/events');
                 }}
                 className="px-5 py-2 bg-primary text-white font-display text-xs tracking-widest uppercase hover:bg-primary/90 transition-all"
               >
