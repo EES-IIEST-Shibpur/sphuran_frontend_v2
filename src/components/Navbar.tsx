@@ -1,6 +1,7 @@
 import { useState, useEffect, memo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Menu, Home, Calendar, Users, Trophy, Image, Mail, Instagram, Facebook, Linkedin, MessageCircle } from 'lucide-react';
+import { Menu, Home, Calendar, Users, Trophy, Image, Mail } from 'lucide-react';
+import { FaInstagram, FaFacebook, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import ChipsTab from './ui/tabs/ChipsTab';
 import { StaggeredMenu } from './ui/tabs/StaggeredMenu';
 import { SocialLinks } from '@/lib/utils';
@@ -35,19 +36,19 @@ const menuItems = [
 const getSocialIcon = (label: string) => {
   switch (label) {
     case 'Instagram':
-      return Instagram;
+      return FaInstagram;
     case 'Facebook':
-      return Facebook;
+      return FaFacebook;
     case 'LinkedIn':
-      return Linkedin;
+      return FaLinkedin;
     case 'WhatsApp':
-      return MessageCircle;
+      return FaWhatsapp;
     default:
-      return Instagram;
+      return FaInstagram;
   }
 };
 
-const staggeredMenuItems = navItems.map((item) => ({
+const staggeredMenuItems = menuItems.map((item) => ({
   label: item.label,
   ariaLabel: `Navigate to ${item.label}`,
   link: item.href,
