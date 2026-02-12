@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { IMAGES } from "@/lib/assets";
+import ScrollToTop from "@/components/ScrollToTop";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -23,6 +24,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+        <ScrollToTop />
         <Suspense fallback={
           <div className="min-h-screen bg-background flex items-center justify-center">
             <div className="text-center">

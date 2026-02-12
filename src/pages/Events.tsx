@@ -12,7 +12,6 @@ import { generateEventsListSchema } from '@/lib/structuredData';
 import { StructuredData } from '@/components/StructuredData';
 import { SEO } from '@/components/SEO';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 const Events = memo(() => {
   const navigate = useNavigate();
