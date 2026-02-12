@@ -9,7 +9,7 @@ const HeroSection = memo(() => {
       <div className="absolute inset-0 w-full h-full z-0 animate-load-fade-in">
         <img
           src="https://res.cloudinary.com/dwr8472qb/image/upload/v1770875298/Gemini_Generated_Image_hgfxxuhgfxxuhgfx_g1mhpy.png"
-          alt="SPHURAN Hero"
+          alt="SPHURAN 4.0 Technical Festival - Electrical Engineering Innovation at IIEST Shibpur"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />

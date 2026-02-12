@@ -28,7 +28,7 @@ const App = () => (
             <div className="text-center">
               <img 
                 src={IMAGES.logos.sphuran} 
-                alt="SPHURAN Logo" 
+                alt="SPHURAN 4.0 - Electrical Engineers' Society IIEST Shibpur Logo" 
                 className="h-24 w-24 object-contain animate-pulse mx-auto mb-4"
               />
               <p className="text-muted-foreground text-sm">Loading...</p>

@@ -23,7 +23,7 @@ const EventCard = memo(({ title, description, icon: Icon, category, date, prize,
         <div className="relative h-48 overflow-hidden bg-card/50">
           <img 
             src={image} 
-            alt={title}
+            alt={`${title} - SPHURAN 4.0 Competition Event at IIEST Shibpur`}
             className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
           />

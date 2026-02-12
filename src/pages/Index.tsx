@@ -47,23 +47,23 @@ const Index = () => {
           <HeroSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="SPHURAN Logo - Loading Content" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <AboutSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="SPHURAN Logo - Loading Content" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <EventsPreview />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="SPHURAN Logo - Loading Content" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <ScheduleSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="SPHURAN Logo - Loading Content" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <ContactSection />
         </Suspense>
         
-        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="Loading" className="h-16 w-16 object-contain animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[30vh] flex items-center justify-center"><img src={IMAGES.logos.sphuran} alt="SPHURAN Logo - Loading Content" className="h-16 w-16 object-contain animate-pulse" /></div>}>
           <PastSponsers />
         </Suspense>
       </main>

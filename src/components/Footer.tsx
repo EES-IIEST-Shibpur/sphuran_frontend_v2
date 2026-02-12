@@ -35,7 +35,7 @@ const Footer = memo(() => {
             <div className="flex justify-center items-center gap-3 md:gap-4 mb-4 md:mb-6">
               <img
                 src={IMAGES.logos.sphuran}
-                alt="SPHURAN Logo"
+                alt="SPHURAN 4.0 - Technical Festival IIEST Shibpur"
                 className="w-14 h-14 md:w-16 md:h-16 object-contain rounded-xl"
               />
               <div>

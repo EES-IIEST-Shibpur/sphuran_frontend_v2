@@ -140,7 +140,7 @@ const Navbar = memo(() => {
             >
               <img 
                 src={IMAGES.logos.sphuran} 
-                alt="SPHURAN Logo" 
+                alt="SPHURAN 4.0 Festival Logo" 
                 className="h-10 w-10 md:h-12 md:w-12 object-contain rounded-lg "
               />
               <div className="hidden sm:block">

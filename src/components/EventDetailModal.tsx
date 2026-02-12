@@ -56,7 +56,7 @@ const EventDetailModal = memo(({
             <div className="relative h-80 overflow-hidden">
               <img 
                 src={image} 
-                alt={title}
+                alt={`${title} - Special Event at SPHURAN 4.0 Technical Festival`}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />

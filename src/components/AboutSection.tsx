@@ -72,7 +72,7 @@ const AboutSection = memo(() => {
             >
               <img 
                 src={IMAGES.logos.sphuran} 
-                alt="SPHURAN Logo" 
+                alt="SPHURAN 4.0 Logo - Annual Technical Festival by Electrical Engineers' Society" 
                 className="w-20 h-20 object-contain rounded-xl"
               />
               <div>
