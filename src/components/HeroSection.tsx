@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import TextType from './ui/animatedComponents/textType';
 import ShinyText from './ui/animatedComponents/shinyText';
+import { CounterUp } from './ui/animatedComponents/counterUp';
 
 const HeroSection = memo(() => {
   return (
@@ -102,20 +103,40 @@ const HeroSection = memo(() => {
         {/* Stats Row */}
         <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 mt-10 sm:mt-12 md:mt-16 animate-load-fade-in" style={{ animationDelay: '1.4s', opacity: 0 }}>
           <div className="text-center">
-            <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary text-glow">4</div>
+            <CounterUp 
+              end={4} 
+              duration={2500}
+              className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary text-glow"
+            />
             <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Edition</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">9+</div>
+            <CounterUp 
+              end={9} 
+              suffix="+" 
+              duration={2500}
+              className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
+            />
             <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Events</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">1856</div>
-            <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Est.</div>
+            <CounterUp 
+              end={50} 
+              prefix="₹" 
+              suffix="K+" 
+              duration={2500}
+              className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
+            />
+            <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Prize Pool</div>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">INI</div>
-            <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Status</div>
+            <CounterUp 
+              end={500} 
+              suffix="+" 
+              duration={2500}
+              className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground"
+            />
+            <div className="font-body text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase mt-1 sm:mt-2">Participants</div>
           </div>
         </div>
       </div>
