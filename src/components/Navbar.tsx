@@ -28,6 +28,7 @@ const socialLinks = SocialLinks.map((social) => ({
 const Navbar = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('Home');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,6 +37,44 @@ const Navbar = memo(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Detect active section based on scroll position
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      // Not on home page, set active based on pathname
+      if (location.pathname === '/events') setActiveSection('Events');
+      else if (location.pathname === '/sponsor') setActiveSection('Sponsors');
+      else if (location.pathname === '/team') setActiveSection('Team');
+      return;
+    }
+
+    const handleScrollSpy = () => {
+      const sections = ['home', 'about', 'events', 'contact', 'sponsors'];
+      const scrollPosition = window.scrollY + 150; // offset for navbar height
+
+      // Check sections from bottom to top
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sectionId = sections[i];
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop } = element;
+          if (scrollPosition >= offsetTop) {
+            // Map section id to nav label
+            let label = sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+            setActiveSection(label);
+            return;
+          }
+        }
+      }
+      
+      // Default to Home if at the very top
+      setActiveSection('Home');
+    };
+
+    handleScrollSpy(); // Initial check
+    window.addEventListener('scroll', handleScrollSpy);
+    return () => window.removeEventListener('scroll', handleScrollSpy);
+  }, [location.pathname]);
 
   // Handle hash navigation on route change
   useEffect(() => {
@@ -157,6 +196,7 @@ const Navbar = memo(() => {
             <div className="hidden lg:block">
               <ChipsTab
                 tabs={navItems}
+                activeTab={activeSection}
                 onSelect={(tab) => scrollToSection(tab.href ?? '')}
               />
             </div>

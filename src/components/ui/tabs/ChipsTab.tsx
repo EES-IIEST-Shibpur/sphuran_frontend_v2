@@ -8,12 +8,15 @@ export interface Tab {
 
 export default function ChipTabs({
   tabs,
+  activeTab,
   onSelect,
 }: {
   tabs: Tab[];
+  activeTab?: string;
   onSelect?: (tab: Tab) => void;
 }) {
-  const [selected, setSelected] = useState(tabs[0].label);
+  const [internalSelected, setInternalSelected] = useState(tabs[0].label);
+  const selected = activeTab ?? internalSelected;
 
   return (
     <div className="flex gap-6 px-6 py-4">
@@ -31,7 +34,7 @@ export default function ChipTabs({
             {/* TAB CARD */}
             <motion.button
               onClick={() => {
-                setSelected(tab.label);
+                setInternalSelected(tab.label);
                 onSelect?.(tab);
               }}
               initial={false}
