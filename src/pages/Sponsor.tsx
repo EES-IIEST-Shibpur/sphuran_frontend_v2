@@ -6,6 +6,7 @@ import CircularText from '@/components/ui/animatedComponents/circularText';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 import { SEO } from '@/components/SEO';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { useInView } from '@/hooks/use-in-view';
 
 const sponsorshipTiers = [
   { tier: 'Title Sponsor', amount: '₹200000/-' },
@@ -62,6 +63,12 @@ const benefits = [
 const Sponsor = () => {
   const navigate = useNavigate();
   
+  // Animation refs
+  const heroRef = useInView({ threshold: 0.2, triggerOnce: true });
+  const tiersRef = useInView({ threshold: 0.2, triggerOnce: true });
+  const benefitsRef = useInView({ threshold: 0.2, triggerOnce: true });
+  const pastSponsorsRef = useInView({ threshold: 0.2, triggerOnce: true });
+  
   return (
     <div className="min-h-screen bg-background relative">
       {/* SEO Meta Tags */}
@@ -104,7 +111,14 @@ const Sponsor = () => {
           className="custom-class"
         /> */}
         {/* Page Header */}
-        <div className="mb-16">
+        <div 
+          ref={heroRef.ref}
+          className={`mb-16 transition-all duration-700 ${
+            heroRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
             Partner With Us
           </span>
@@ -118,7 +132,14 @@ const Sponsor = () => {
         </div>
 
         {/* Why Sponsor Us Section */}
-        <div className="mb-20">
+        <div 
+          ref={benefitsRef.ref}
+          className={`mb-20 transition-all duration-700 ${
+            benefitsRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-12">
             Why Sponsor Us?
           </h2>
@@ -155,7 +176,14 @@ const Sponsor = () => {
         </div>
 
         {/* Sponsorship Tariff Section */}
-        <div className="mb-20">
+        <div 
+          ref={tiersRef.ref}
+          className={`mb-20 transition-all duration-700 ${
+            tiersRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-8">
             Sponsorship Tariff
           </h2>
@@ -201,7 +229,14 @@ const Sponsor = () => {
         </div>
 
         {/* Past Sponsors Section */}
-        <div className="mb-0">
+        <div 
+          ref={pastSponsorsRef.ref}
+          className={`mb-0 transition-all duration-700 ${
+            pastSponsorsRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <PastSponsers />
         </div>
 

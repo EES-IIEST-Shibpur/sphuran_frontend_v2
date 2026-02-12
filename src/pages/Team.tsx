@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 import { SEO } from '@/components/SEO';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { useInView } from '@/hooks/use-in-view';
 
 const teamData = {
   faculty: [
@@ -207,6 +208,12 @@ DepartmentSection.displayName = 'DepartmentSection';
 const Team = () => {
   const navigate = useNavigate();
   
+  // Animation refs
+  const heroRef = useInView({ threshold: 0.2, triggerOnce: true });
+  const facultyRef = useInView({ threshold: 0.2, triggerOnce: true });
+  const coordinatorsRef = useInView({ threshold: 0.2, triggerOnce: true });
+  const departmentsRef = useInView({ threshold: 0.2, triggerOnce: true });
+  
   return (
     <div className="min-h-screen bg-background relative">
       {/* SEO Meta Tags */}
@@ -243,7 +250,14 @@ const Team = () => {
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16 relative z-10">
         {/* Page Header */}
-        <div className="mb-16">
+        <div 
+          ref={heroRef.ref}
+          className={`mb-16 transition-all duration-700 ${
+            heroRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <span className="font-body text-xs tracking-[0.4em] uppercase text-muted-foreground">
             Meet Our Team
           </span>
@@ -254,7 +268,14 @@ const Team = () => {
         </div>
 
         {/* Faculty */}
-        <div className="mb-12">
+        <div 
+          ref={facultyRef.ref}
+          className={`mb-12 transition-all duration-700 ${
+            facultyRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6 border-b border-border pb-3">
             Faculty Advisors
           </h2>
@@ -272,7 +293,14 @@ const Team = () => {
         </div>
 
         {/* Main Coordinators */}
-        <div className="mb-12">
+        <div 
+          ref={coordinatorsRef.ref}
+          className={`mb-12 transition-all duration-700 ${
+            coordinatorsRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6 border-b border-border pb-3">
             Main Coordinators
           </h2>
@@ -288,6 +316,14 @@ const Team = () => {
         </div>
 
         {/* Departments */}
+        <div 
+          ref={departmentsRef.ref}
+          className={`transition-all duration-700 ${
+            departmentsRef.isInView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
         <DepartmentSection title="Finance & Audit" department={teamData.financeAudit} />
         <DepartmentSection title="Website" department={teamData.website} />
         <DepartmentSection title="Design" department={teamData.design} />
@@ -302,6 +338,7 @@ const Team = () => {
             Volunteers
           </h2>
           <TeamSection title="" members={teamData.volunteers} />
+        </div>
         </div>
       </div>
 
