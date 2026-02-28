@@ -162,11 +162,11 @@ const AboutSection = memo(() => {
             <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between gap-8 md:gap-0 pt-8 border-t border-border">
               <div className="text-center md:text-left">
                 <div className="flex items-baseline justify-center md:justify-start gap-1">
-                  <span className="font-body text-lg text-amber-600/80">Since</span>
+                  <span className="font-body text-lg text-red-800/80">Since</span>
                   <CounterUp 
                     end={1981} 
                     duration={2500}
-                    className="font-display text-3xl md:text-4xl font-black text-amber-600"
+                    className="font-display text-3xl md:text-4xl font-black text-red-800"
                   />
                 </div>
                 <div className="font-body text-xs tracking-widest text-muted-foreground uppercase mt-2">45 Years of Excellence</div>
