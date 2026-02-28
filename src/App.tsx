@@ -14,6 +14,7 @@ const Team = lazy(() => import("./pages/Team"));
 const Sponsor = lazy(() => import("./pages/Sponsor"));
 const Events = lazy(() => import("./pages/Events"));
 const Gallery = lazy(() => import("./pages/Gallery"));
+const Merchandise = lazy(() => import("./pages/Merchandise"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/team" element={<Team />} />
             <Route path="/sponsor" element={<Sponsor />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/merch" element={<Merchandise />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

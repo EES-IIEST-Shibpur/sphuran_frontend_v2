@@ -19,6 +19,12 @@ export const IMAGES = {
     rxb: `${CLOUDINARY_BASE}/v1770546105/sphuran-x-rxb_vhuylt.jpg`,
   },
 
+  // Merchandise Images
+  merchandise: {
+    tshirtFront: `${CLOUDINARY_BASE}/v1772303518/tshirt_front_b1ecjb.jpg`,
+    tshirtBack: `${CLOUDINARY_BASE}/v1772303699/thsirt_back_zfdijj.jpg`,
+  },
+
   // Sponsor Logos
   sponsors: {
     zomato: {

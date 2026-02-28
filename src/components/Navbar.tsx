@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Menu, Home, Calendar, Users, Trophy, Image, Mail } from 'lucide-react';
+import { Menu, Home, Calendar, Users, Trophy, Image, Mail, Shirt } from 'lucide-react';
 import { FaInstagram, FaFacebook, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import ChipsTab from './ui/tabs/ChipsTab';
 import { StaggeredMenu } from './ui/tabs/StaggeredMenu';
@@ -19,6 +19,7 @@ const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Events', href: '/events' },
+  { label: 'Merch', href: '/merch' },
   { label: 'Contact', href: '#contact' },
   { label: 'Sponsors', href: '/sponsor' },
   { label: 'Team', href: '/team' },
@@ -27,6 +28,7 @@ const navItems = [
 const menuItems = [
   { label: 'Home', href: '/', icon: Home },
   { label: 'Events', href: '/events', icon: Calendar },
+  { label: 'Merch', href: '/merch', icon: Shirt },
   { label: 'Gallery', href: '/gallery', icon: Image },
   { label: 'Team', href: '/team', icon: Users },
   { label: 'Sponsors', href: '/sponsor', icon: Trophy },
@@ -77,6 +79,7 @@ const Navbar = memo(() => {
     if (location.pathname !== '/') {
       // Not on home page, set active based on pathname
       if (location.pathname === '/events') setActiveSection('Events');
+      else if (location.pathname === '/merch') setActiveSection('Merch');
       else if (location.pathname === '/sponsor') setActiveSection('Sponsors');
       else if (location.pathname === '/team') setActiveSection('Team');
       return;
