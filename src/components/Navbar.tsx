@@ -185,7 +185,7 @@ const Navbar = memo(() => {
       } h-20`} />
 
       {/* Mobile Live Badge - Centered in mobile header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-[45] h-20 flex items-center justify-center pointer-events-none">
+      {/* <div className="lg:hidden fixed top-0 left-0 right-0 z-[45] h-20 flex items-center justify-center pointer-events-none">
         <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/40 bg-red-500/10">
           <span className="relative flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
@@ -195,7 +195,7 @@ const Navbar = memo(() => {
             Event is Live
           </span>
         </div>
-      </div>
+      </div> */}
       
       {/* Mobile StaggeredMenu - Only visible on mobile */}
       <div className="lg:hidden fixed inset-0 z-50 pointer-events-none">
