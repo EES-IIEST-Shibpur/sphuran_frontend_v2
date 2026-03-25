@@ -15,8 +15,8 @@
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 20 100% 50%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 0 92% 30%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 100%;
@@ -37,8 +37,8 @@
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --glow: 0 0 10px hsl(30 100% 50% / 0.5);
-    --glow-strong: 0 0 20px hsl(30 100% 50% / 0.8);
+    --glow: 0 0 10px hsl(0 92% 30% / 0.5);
+    --glow-strong: 0 0 20px hsl(0 92% 30% / 0.8);
     
     --font-display: 'Orbitron', sans-serif;
     --font-body: 'Inter', sans-serif;
